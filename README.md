@@ -1,36 +1,59 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# drotegadnp.com
 
-## Getting Started
+Official website for **Dr. Otega Ojukwu, DNP, FNP-C, PMHNP-BC, LFP** — integrated health, mental wellness, and financial empowerment services in North Miami Beach, FL.
 
-First, run the development server:
+**Tagline:** Inform. Empower. Uplift.
+
+## Tech Stack
+
+- **Framework:** Next.js 14 (App Router, TypeScript)
+- **Styling:** Tailwind CSS
+- **Animations:** Framer Motion
+- **Icons:** Lucide React
+- **Forms:** Formspree (React)
+- **Fonts:** Playfair Display (headings), Inter (body) via Google Fonts
+- **Deployment:** Vercel
+
+## Pages
+
+| Route | Description |
+|-------|-------------|
+| `/` | Homepage — hero, problem, guide, 3-pillar model, timeline, trust bar, transformation, thought leadership preview |
+| `/about` | About Dr. Otega (placeholder) |
+| `/services` | Services overview — three pillars, integrated care, audience cards |
+| `/services/health` | Health & Clinical services |
+| `/services/lab-testing` | Lab & Diagnostics services |
+| `/services/financial-wellness` | Financial Wellness services |
+| `/thought-leadership` | Books, speaking, workshops, the movement |
+| `/contact` | Contact form, direct contact, booking, first visit steps |
+| `/privacy` | Privacy Policy |
+| `/terms` | Terms & Conditions |
+| `/disclaimers` | Important Disclaimers |
+
+## Run Locally
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Deploy
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm i -g vercel
+vercel --prod
+```
 
-## Learn More
+**Custom domain setup:** Add `drotegadnp.com` in Vercel Dashboard > Settings > Domains.
 
-To learn more about Next.js, take a look at the following resources:
+## Placeholders to Replace
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **Formspree form ID:** Replace `YOUR_FORM_ID` in `app/contact/ContactContent.tsx`
+- **Setmore embed:** Replace placeholder in `app/contact/ContactContent.tsx` (search for `TODO: Replace with Setmore`)
+- **Book covers & Amazon links:** Replace placeholders in `app/thought-leadership/ThoughtLeadershipContent.tsx`
+- **OG image:** Replace `public/og-image.jpg` with a branded 1200x630 image
+- **Professional photos:** Replace the placeholder div in the homepage Guide section with Dr. Otega's photo
+- **Social links:** Update Instagram, Facebook, LinkedIn URLs in `lib/brand.ts`
+- **Google Maps embed:** Update the iframe src in `app/contact/ContactContent.tsx` with an actual embed URL
