@@ -45,8 +45,8 @@ export default function Navbar() {
         aria-label="Main navigation"
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           scrolled
-            ? "bg-primary/95 backdrop-blur-md shadow-lg"
-            : "bg-primary"
+            ? "bg-white/95 backdrop-blur-md shadow-lg"
+            : "bg-white"
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -75,7 +75,7 @@ export default function Navbar() {
                   >
                     <Link
                       href={link.href}
-                      className="flex items-center gap-1 text-white/90 hover:text-secondary transition-colors font-medium py-2"
+                      className="flex items-center gap-1 text-primary/80 hover:text-secondary transition-colors font-medium py-2"
                       aria-expanded={servicesOpen}
                       aria-haspopup="true"
                     >
@@ -89,7 +89,7 @@ export default function Navbar() {
                           animate={{ opacity: 1, y: 0 }}
                           exit={{ opacity: 0, y: 8 }}
                           transition={{ duration: 0.2, ease: "easeOut" }}
-                          className="absolute top-full left-0 mt-2 w-56 bg-white rounded-lg shadow-xl overflow-hidden"
+                          className="absolute top-full left-0 mt-2 w-56 bg-white rounded-lg shadow-xl border border-gray-100 overflow-hidden"
                           role="menu"
                         >
                           {services.map((s) => (
@@ -97,7 +97,7 @@ export default function Navbar() {
                               key={s.name}
                               href={s.href}
                               role="menuitem"
-                              className="block px-5 py-3 text-primary hover:bg-surface hover:text-accent transition-colors text-sm font-medium"
+                              className="block px-5 py-3 text-primary hover:bg-surface hover:text-secondary transition-colors text-sm font-medium"
                             >
                               {s.name}
                             </Link>
@@ -110,7 +110,7 @@ export default function Navbar() {
                   <Link
                     key={link.name}
                     href={link.href}
-                    className="text-white/90 hover:text-secondary transition-colors font-medium py-2"
+                    className="text-primary/80 hover:text-secondary transition-colors font-medium py-2"
                   >
                     {link.name}
                   </Link>
@@ -126,9 +126,9 @@ export default function Navbar() {
               Book an Appointment
             </Link>
 
-            {/* Mobile Hamburger - min 44x44 tap target */}
+            {/* Mobile Hamburger */}
             <button
-              className="lg:hidden text-white p-2 min-w-[44px] min-h-[44px] flex items-center justify-center"
+              className="lg:hidden text-primary p-2 min-w-[44px] min-h-[44px] flex items-center justify-center"
               onClick={() => setMobileOpen(!mobileOpen)}
               aria-label={mobileOpen ? "Close menu" : "Open menu"}
               aria-expanded={mobileOpen}
@@ -165,31 +165,33 @@ export default function Navbar() {
             </Link>
 
             <div className="flex flex-col gap-1">
-              {navLinks.map((link) => (
-                <div key={link.name}>
-                  <Link
-                    href={link.href}
-                    onClick={() => setMobileOpen(false)}
-                    className="block py-4 text-2xl font-heading text-white hover:text-secondary transition-colors border-b border-white/10 min-h-[44px]"
-                  >
-                    {link.name}
-                  </Link>
-                  {link.hasDropdown && (
-                    <div className="pl-4">
-                      {services.map((s) => (
-                        <Link
-                          key={s.name}
-                          href={s.href}
-                          onClick={() => setMobileOpen(false)}
-                          className="block py-3 text-lg text-secondary/80 hover:text-secondary transition-colors min-h-[44px]"
-                        >
-                          {s.name}
-                        </Link>
-                      ))}
-                    </div>
-                  )}
-                </div>
-              ))}
+              {navLinks.map((link) => {
+                return (
+                  <div key={link.name}>
+                    <Link
+                      href={link.href}
+                      onClick={() => setMobileOpen(false)}
+                      className="block py-4 text-2xl font-heading text-white hover:text-secondary transition-colors border-b border-white/10 min-h-[44px]"
+                    >
+                      {link.name}
+                    </Link>
+                    {link.hasDropdown && (
+                      <div className="pl-4">
+                        {services.map((s) => (
+                          <Link
+                            key={s.name}
+                            href={s.href}
+                            onClick={() => setMobileOpen(false)}
+                            className="block py-3 text-lg text-secondary/80 hover:text-secondary transition-colors min-h-[44px]"
+                          >
+                            {s.name}
+                          </Link>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
             </div>
           </motion.div>
         )}

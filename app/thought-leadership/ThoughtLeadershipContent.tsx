@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { BookOpen } from "lucide-react";
 import PreFooterCTA from "@/components/PreFooterCTA";
@@ -102,17 +103,32 @@ function Books() {
 function Speaking() {
   return (
     <section className="bg-surface py-20 md:py-28 px-4">
-      <div className="max-w-3xl mx-auto">
+      <div className="max-w-5xl mx-auto">
         <motion.h2
           {...fadeUp}
-          className="text-3xl md:text-[40px] font-heading font-bold text-primary leading-tight text-center mb-8"
+          className="text-3xl md:text-[40px] font-heading font-bold text-primary leading-tight text-center mb-10"
         >
           Bringing the Mission to the Stage
         </motion.h2>
 
-        <motion.p
+        <motion.div
           {...fadeUp}
           transition={{ duration: 0.6, delay: 0.1 }}
+          className="rounded-2xl overflow-hidden mb-10"
+        >
+          <Image
+            src="/speaking-hero.jpg"
+            alt="Dr. Otega speaking at a professional conference"
+            width={1200}
+            height={675}
+            className="w-full h-64 md:h-80 object-cover"
+          />
+        </motion.div>
+
+        <div className="max-w-3xl mx-auto">
+        <motion.p
+          {...fadeUp}
+          transition={{ duration: 0.6, delay: 0.15 }}
           className="text-lg text-[#2D2D2D] font-body leading-relaxed text-center mb-10"
         >
           Dr. Otega is available for keynotes, panel discussions, corporate
@@ -148,6 +164,7 @@ function Speaking() {
             Inquire About Speaking
           </Link>
         </motion.div>
+        </div>
       </div>
     </section>
   );
@@ -156,17 +173,32 @@ function Speaking() {
 function Workshops() {
   return (
     <section className="bg-white py-20 md:py-28 px-4">
-      <div className="max-w-3xl mx-auto text-center">
+      <div className="max-w-5xl mx-auto">
         <motion.h2
           {...fadeUp}
-          className="text-3xl md:text-[40px] font-heading font-bold text-primary leading-tight mb-8"
+          className="text-3xl md:text-[40px] font-heading font-bold text-primary leading-tight text-center mb-10"
         >
           Empowering Communities, One Room at a Time
         </motion.h2>
 
-        <motion.p
+        <motion.div
           {...fadeUp}
           transition={{ duration: 0.6, delay: 0.1 }}
+          className="rounded-2xl overflow-hidden mb-10"
+        >
+          <Image
+            src="/workshop-hero.jpg"
+            alt="Dr. Otega leading a community health and wellness workshop"
+            width={1200}
+            height={675}
+            className="w-full h-64 md:h-80 object-cover"
+          />
+        </motion.div>
+
+        <div className="max-w-3xl mx-auto text-center">
+        <motion.p
+          {...fadeUp}
+          transition={{ duration: 0.6, delay: 0.15 }}
           className="text-lg text-[#2D2D2D] font-body leading-relaxed mb-10"
         >
           Whether it is a corporate wellness lunch-and-learn, a community health
@@ -182,6 +214,7 @@ function Workshops() {
             Request a Workshop
           </Link>
         </motion.div>
+        </div>
       </div>
     </section>
   );

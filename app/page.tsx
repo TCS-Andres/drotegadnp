@@ -69,25 +69,10 @@ function Hero() {
       }}
     >
       <div className="max-w-4xl mx-auto text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-        >
-          <Image
-            src="/logo.png"
-            alt="Dr. Otega DNP logo"
-            width={120}
-            height={120}
-            className="mx-auto mb-8"
-            priority
-          />
-        </motion.div>
-
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
           className="text-4xl sm:text-5xl md:text-[56px] lg:text-[64px] font-heading font-bold text-white leading-tight mb-6"
         >
           Know Your Numbers.
@@ -98,7 +83,7 @@ function Hero() {
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.8 }}
+          transition={{ duration: 0.6, delay: 0.6 }}
           className="text-lg md:text-xl text-[#FAF7F2] font-body mb-4 max-w-2xl mx-auto"
         >
           Physical Health. Mental Wellness. Financial Empowerment. One Trusted
@@ -108,7 +93,7 @@ function Hero() {
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 1.2 }}
+          transition={{ duration: 0.6, delay: 1.0 }}
           className="text-base text-secondary font-semibold font-body mb-10"
         >
           {credentials.map((cred, i) => (
@@ -124,7 +109,7 @@ function Hero() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 1.6 }}
+          transition={{ duration: 0.6, delay: 1.4 }}
           className="flex flex-col sm:flex-row items-center justify-center gap-4"
         >
           <Link
@@ -190,11 +175,13 @@ function Guide() {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.7 }}
           >
-            <div className="aspect-[3/4] w-full max-w-md mx-auto rounded-2xl border-2 border-secondary bg-background flex items-center justify-center">
-              <span className="text-text-secondary font-body text-lg">
-                Dr. Otega Photo
-              </span>
-            </div>
+            <Image
+              src="/portrait.jpg"
+              alt="Dr. Otega Ojukwu, DNP, LFP"
+              width={500}
+              height={667}
+              className="w-full max-w-md mx-auto rounded-2xl object-cover"
+            />
           </motion.div>
 
           {/* Text content */}

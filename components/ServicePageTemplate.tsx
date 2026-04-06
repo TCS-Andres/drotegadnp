@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { Check, type LucideIcon } from "lucide-react";
 import PreFooterCTA from "@/components/PreFooterCTA";
@@ -26,6 +27,8 @@ export interface CrossPillarLink {
 interface ServicePageTemplateProps {
   title: string;
   subtitle: string;
+  heroImage?: string;
+  heroImageAlt?: string;
   services: ServiceItem[];
   whyChooseTitle: string;
   whyChooseItems: string[];
@@ -37,6 +40,8 @@ interface ServicePageTemplateProps {
 export default function ServicePageTemplate({
   title,
   subtitle,
+  heroImage,
+  heroImageAlt,
   services,
   whyChooseTitle,
   whyChooseItems,
@@ -47,6 +52,18 @@ export default function ServicePageTemplate({
   return (
     <>
       {/* Section 1 - Hero */}
+      {heroImage && (
+        <div className="w-full h-64 md:h-80 relative">
+          <Image
+            src={heroImage}
+            alt={heroImageAlt || title}
+            fill
+            className="object-cover"
+            priority
+          />
+          <div className="absolute inset-0 bg-primary/40" />
+        </div>
+      )}
       <section className="bg-background py-20 md:py-28 px-4">
         <div className="max-w-4xl mx-auto text-center">
           <motion.h1

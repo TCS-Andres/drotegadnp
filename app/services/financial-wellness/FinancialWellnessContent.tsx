@@ -41,6 +41,8 @@ export default function FinancialWellnessContent() {
     <ServicePageTemplate
       title="Financial Wellness Services"
       subtitle="Protect your income. Build your wealth. Secure your family's future."
+      heroImage="/financial-hero.jpg"
+      heroImageAlt="Financial planning consultation session"
       services={services}
       whyChooseTitle="Dr. Otega for Financial Wellness"
       whyChooseItems={whyChooseItems}

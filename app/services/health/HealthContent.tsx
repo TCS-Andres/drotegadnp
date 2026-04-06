@@ -59,6 +59,8 @@ export default function HealthContent() {
     <ServicePageTemplate
       title="Health & Clinical Services"
       subtitle="Expert-level primary care and mental health services — focused on prevention, clarity, and total well-being."
+      heroImage="/health-hero.jpg"
+      heroImageAlt="Medical consultation with Dr. Otega"
       services={services}
       whyChooseTitle="Dr. Otega for Health & Clinical"
       whyChooseItems={whyChooseItems}

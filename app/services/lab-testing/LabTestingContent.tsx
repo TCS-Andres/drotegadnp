@@ -48,6 +48,8 @@ export default function LabTestingContent() {
     <ServicePageTemplate
       title="Laboratory & Diagnostic Services"
       subtitle="Advanced testing. Early detection. The clarity you need to take control of your health."
+      heroImage="/lab-hero.jpg"
+      heroImageAlt="Modern laboratory diagnostic testing facility"
       services={services}
       whyChooseTitle="ARCpoint Labs of North Miami Beach"
       whyChooseItems={whyChooseItems}
