@@ -64,8 +64,17 @@ const steps = [
 function Hero() {
   return (
     <section
-      className="relative min-h-[80vh] md:min-h-[90vh] flex items-center justify-center px-4 overflow-hidden mesh-gradient-hero"
+      className="relative min-h-[80vh] md:min-h-[90vh] flex items-center justify-center px-4 overflow-hidden"
     >
+      {/* Hero background image */}
+      <Image
+        src="/hero-wide.jpg"
+        alt=""
+        fill
+        className="object-cover"
+        priority
+      />
+      <div className="absolute inset-0 mesh-gradient-hero opacity-90" />
       {/* Floating decorative shapes */}
       <div className="floating-shape w-64 h-64 bg-secondary animate-float-slow" style={{ top: '10%', right: '10%', opacity: 0.06 }} />
       <div className="floating-shape w-48 h-48 border-2 border-secondary animate-float-medium" style={{ bottom: '15%', left: '5%', opacity: 0.08, background: 'transparent' }} />

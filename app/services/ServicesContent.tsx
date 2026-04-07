@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import PreFooterCTA from "@/components/PreFooterCTA";
 import {
@@ -95,6 +96,13 @@ const audiences = [
 function Hero() {
   return (
     <section className="relative bg-background py-20 md:py-28 px-4 overflow-hidden">
+      {/* Services overview background image */}
+      <Image
+        src="/services-overview.jpg"
+        alt=""
+        fill
+        className="object-cover opacity-[0.07]"
+      />
       {/* Subtle warm radial gradient */}
       <div className="absolute inset-0 pointer-events-none warm-radial-glow" />
       {/* Floating decorative shapes */}
