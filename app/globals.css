@@ -63,3 +63,159 @@ body {
 .heading-underline.in-view::after {
   width: 60px;
 }
+
+/* ============================================
+   MODERN GLASSMORPHISM & VISUAL UTILITIES
+   ============================================ */
+
+/* Glass card - light */
+.glass-card {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
+}
+
+/* Glass card - dark (for dark backgrounds) */
+.glass-card-dark {
+  background: rgba(250, 247, 242, 0.08);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(250, 247, 242, 0.12);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+/* Glass card hover enhancement */
+.glass-card-hover {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.glass-card-hover:hover {
+  background: rgba(255, 255, 255, 0.75);
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(201, 162, 39, 0.15);
+  transform: translateY(-4px);
+}
+
+/* Gradient border wrapper */
+.gradient-border {
+  position: relative;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+.gradient-border::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1.5px;
+  background: linear-gradient(135deg, rgba(201, 162, 39, 0.4), rgba(107, 28, 42, 0.2), rgba(201, 162, 39, 0.1));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* Gold glow effect */
+.gold-glow {
+  text-shadow: 0 0 20px rgba(201, 162, 39, 0.3), 0 0 40px rgba(201, 162, 39, 0.1);
+}
+
+/* Gradient text */
+.gradient-text-gold {
+  background: linear-gradient(135deg, #C9A227, #E8D48B, #C9A227);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Shimmer / shine hover effect for cards */
+.shimmer-hover {
+  position: relative;
+  overflow: hidden;
+}
+.shimmer-hover::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    115deg,
+    transparent 40%,
+    rgba(201, 162, 39, 0.06) 45%,
+    rgba(201, 162, 39, 0.12) 50%,
+    rgba(201, 162, 39, 0.06) 55%,
+    transparent 60%
+  );
+  transform: rotate(25deg) translateX(-100%);
+  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+}
+.shimmer-hover:hover::after {
+  transform: rotate(25deg) translateX(100%);
+}
+
+/* Mesh gradient backgrounds */
+.mesh-gradient-hero {
+  background:
+    radial-gradient(ellipse 80% 60% at 20% 80%, rgba(107, 28, 42, 0.25) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 80% at 80% 20%, rgba(201, 162, 39, 0.12) 0%, transparent 50%),
+    radial-gradient(ellipse 50% 50% at 50% 50%, rgba(45, 45, 45, 0.3) 0%, transparent 70%),
+    linear-gradient(180deg, #1A1A1A 0%, #2D2D2D 100%);
+}
+
+.mesh-gradient-accent {
+  background:
+    radial-gradient(ellipse 80% 50% at 10% 90%, rgba(201, 162, 39, 0.1) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 70% at 90% 10%, rgba(107, 28, 42, 0.15) 0%, transparent 50%),
+    linear-gradient(135deg, #6B1C2A 0%, #4A1320 40%, #3D0F1A 100%);
+}
+
+/* Gradient separator */
+.gradient-separator {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(201, 162, 39, 0.5), transparent);
+}
+
+/* Gradient separator - vertical */
+.gradient-separator-v {
+  width: 2px;
+  background: linear-gradient(180deg, transparent, rgba(201, 162, 39, 0.4), transparent);
+}
+
+/* Floating decorative shapes */
+.floating-shape {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 0.08;
+}
+
+/* Subtle noise texture overlay */
+.noise-overlay::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Section gradient transition */
+.section-gradient-top {
+  position: relative;
+}
+.section-gradient-top::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 120px;
+  background: linear-gradient(180deg, rgba(240, 235, 225, 0.5) 0%, transparent 100%);
+  pointer-events: none;
+  z-index: 0;
+}

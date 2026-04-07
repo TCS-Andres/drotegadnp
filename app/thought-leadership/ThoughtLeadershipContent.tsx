@@ -77,7 +77,7 @@ function Books() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.6, delay: i * 0.15 }}
-              className="aspect-[3/4] bg-surface rounded-xl border-2 border-secondary flex flex-col items-center justify-center p-8"
+              className="aspect-[3/4] glass-card gradient-border rounded-xl flex flex-col items-center justify-center p-8 shimmer-hover"
             >
               <BookOpen className="w-14 h-14 text-secondary mb-6" />
               <p className="font-heading font-bold text-primary text-lg mb-2 text-center">
@@ -223,13 +223,16 @@ function Workshops() {
 function Movement() {
   return (
     <section
-      className="py-20 md:py-28 px-4"
-      style={{ background: "#1A1A1A" }}
+      className="relative py-20 md:py-28 px-4 overflow-hidden"
+      style={{ background: 'radial-gradient(ellipse 80% 60% at 30% 80%, rgba(107,28,42,0.2) 0%, transparent 60%), radial-gradient(ellipse 60% 80% at 80% 20%, rgba(201,162,39,0.08) 0%, transparent 50%), #1A1A1A' }}
     >
-      <div className="max-w-3xl mx-auto text-center">
+      {/* Floating decorative shapes */}
+      <div className="floating-shape w-44 h-44 border border-secondary animate-float-slow" style={{ top: '10%', left: '5%', opacity: 0.07, background: 'transparent' }} />
+      <div className="floating-shape w-28 h-28 bg-accent animate-float-medium" style={{ bottom: '15%', right: '10%', opacity: 0.06 }} />
+      <div className="relative z-10 max-w-3xl mx-auto text-center">
         <motion.h2
           {...fadeUp}
-          className="text-3xl md:text-[40px] font-heading font-bold text-secondary leading-tight mb-8"
+          className="text-3xl md:text-[40px] font-heading font-bold text-secondary leading-tight mb-8 gold-glow"
         >
           More Than a Brand. A Movement.
         </motion.h2>

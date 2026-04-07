@@ -63,12 +63,18 @@ const steps = [
 function Hero() {
   return (
     <section
-      className="relative min-h-[80vh] md:min-h-[90vh] flex items-center justify-center px-4"
-      style={{
-        background: "linear-gradient(to bottom, #1A1A1A, #2D2D2D)",
-      }}
+      className="relative min-h-[80vh] md:min-h-[90vh] flex items-center justify-center px-4 overflow-hidden mesh-gradient-hero"
     >
-      <div className="max-w-4xl mx-auto text-center">
+      {/* Floating decorative shapes */}
+      <div className="floating-shape w-64 h-64 bg-secondary animate-float-slow" style={{ top: '10%', right: '10%', opacity: 0.06 }} />
+      <div className="floating-shape w-48 h-48 border-2 border-secondary animate-float-medium" style={{ bottom: '15%', left: '5%', opacity: 0.08, background: 'transparent' }} />
+      <div className="floating-shape w-32 h-32 bg-accent animate-float-fast" style={{ top: '60%', right: '25%', opacity: 0.05 }} />
+      <div className="floating-shape w-20 h-20 border border-secondary animate-float-medium" style={{ top: '25%', left: '15%', opacity: 0.1, background: 'transparent' }} />
+
+      {/* Radial glow */}
+      <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(circle at 50% 40%, rgba(201, 162, 39, 0.08) 0%, transparent 60%)' }} />
+
+      <div className="relative z-10 max-w-4xl mx-auto text-center">
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -132,8 +138,12 @@ function Hero() {
 
 function Problem() {
   return (
-    <section className="bg-background py-20 md:py-28 px-4">
-      <div className="max-w-3xl mx-auto text-center">
+    <section className="relative bg-background py-20 md:py-28 px-4 overflow-hidden">
+      {/* Subtle gradient transition from hero */}
+      <div className="absolute top-0 left-0 right-0 h-32 pointer-events-none" style={{ background: 'linear-gradient(180deg, rgba(26,26,26,0.04) 0%, transparent 100%)' }} />
+      {/* Decorative gold blob */}
+      <div className="floating-shape w-72 h-72 bg-secondary animate-float-slow" style={{ top: '20%', right: '-5%', opacity: 0.03 }} />
+      <div className="relative z-10 max-w-3xl mx-auto text-center">
         <motion.h2
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -164,6 +174,7 @@ function Problem() {
 }
 
 function Guide() {
+  /* Guide section with glass card effect on text */
   return (
     <section className="bg-surface py-20 md:py-28 px-4">
       <div className="max-w-6xl mx-auto">
@@ -190,6 +201,7 @@ function Guide() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.7 }}
+            className="glass-card rounded-2xl p-8 md:p-10"
           >
             <h2 className="text-3xl md:text-[40px] font-heading font-bold text-primary leading-tight mb-6">
               Meet Dr. Otega Ojukwu
@@ -222,8 +234,11 @@ function Guide() {
 
 function ThreeInOneModel() {
   return (
-    <section className="bg-white py-20 md:py-28 px-4">
-      <div className="max-w-6xl mx-auto">
+    <section className="relative bg-white py-20 md:py-28 px-4 overflow-hidden">
+      {/* Decorative background elements */}
+      <div className="floating-shape w-96 h-96 bg-secondary animate-float-slow" style={{ top: '-10%', left: '-5%', opacity: 0.03 }} />
+      <div className="floating-shape w-64 h-64 bg-accent animate-float-medium" style={{ bottom: '5%', right: '-3%', opacity: 0.03 }} />
+      <div className="relative z-10 max-w-6xl mx-auto">
         <motion.h2
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -242,7 +257,7 @@ function ThreeInOneModel() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.6, delay: i * 0.2 }}
-              className="bg-surface rounded-xl p-8 shadow-sm hover:-translate-y-1 hover:shadow-lg transition-all duration-300"
+              className="glass-card shimmer-hover rounded-xl p-8 shadow-glass hover:shadow-gold-glow transition-all duration-300"
             >
               <div className="w-14 h-14 rounded-full bg-secondary/15 flex items-center justify-center mb-6">
                 <pillar.icon className="w-7 h-7 text-secondary" />
@@ -283,14 +298,16 @@ function KnowYourNumbers() {
 
         {/* Timeline */}
         <div className="relative grid md:grid-cols-3 gap-12 md:gap-8">
-          {/* Connecting line - desktop */}
+          {/* Connecting line - desktop (gradient) */}
           <div
-            className="hidden md:block absolute top-7 left-[calc(16.667%+28px)] right-[calc(16.667%+28px)] h-0.5 bg-secondary/30"
+            className="hidden md:block absolute top-7 left-[calc(16.667%+28px)] right-[calc(16.667%+28px)] h-0.5"
+            style={{ background: 'linear-gradient(90deg, rgba(201,162,39,0.1), rgba(201,162,39,0.5), rgba(201,162,39,0.1))' }}
             aria-hidden="true"
           />
-          {/* Connecting line - mobile */}
+          {/* Connecting line - mobile (gradient) */}
           <div
-            className="md:hidden absolute top-0 bottom-0 left-7 w-0.5 bg-secondary/30"
+            className="md:hidden absolute top-0 bottom-0 left-7 w-0.5"
+            style={{ background: 'linear-gradient(180deg, rgba(201,162,39,0.1), rgba(201,162,39,0.5), rgba(201,162,39,0.1))' }}
             aria-hidden="true"
           />
 
@@ -303,12 +320,12 @@ function KnowYourNumbers() {
               transition={{ duration: 0.6, delay: i * 0.3 }}
               className="relative flex md:flex-col items-start md:items-center text-left md:text-center gap-5 md:gap-0"
             >
-              <div className="relative z-10 w-14 h-14 rounded-full bg-secondary flex items-center justify-center flex-shrink-0 md:mb-6">
+              <div className="relative z-10 w-14 h-14 rounded-full bg-secondary shadow-gold-glow flex items-center justify-center flex-shrink-0 md:mb-6">
                 <span className="text-primary font-heading font-bold text-xl">
                   {step.num}
                 </span>
               </div>
-              <div>
+              <div className="glass-card rounded-xl p-4 md:p-0 md:bg-transparent md:backdrop-blur-none md:border-0 md:shadow-none">
                 <h3 className="text-xl font-heading font-bold text-primary mb-2">
                   {step.title}
                 </h3>
@@ -358,7 +375,7 @@ function AnimatedStat({
         initial={{ opacity: 0, scale: 0.5 }}
         animate={displayed ? { opacity: 1, scale: 1 } : {}}
         transition={{ duration: 0.5, type: "spring" }}
-        className="text-3xl md:text-4xl font-heading font-bold text-secondary mb-1"
+        className="text-3xl md:text-4xl font-heading font-bold text-secondary mb-1 gold-glow"
       >
         {displayed ? value : "\u00A0"}
       </motion.p>
@@ -369,18 +386,19 @@ function AnimatedStat({
 
 function CredentialsTrustBar() {
   return (
-    <section className="bg-primary py-16 px-4">
-      <div className="max-w-6xl mx-auto">
+    <section className="relative bg-primary py-16 px-4 overflow-hidden">
+      {/* Subtle radial glow */}
+      <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse at 50% 50%, rgba(201,162,39,0.06) 0%, transparent 70%)' }} />
+      <div className="relative z-10 max-w-6xl mx-auto">
         <div className="grid grid-cols-2 md:grid-cols-5 gap-y-8">
           {trustStats.map((stat, i) => (
             <div
               key={stat.label}
-              className={`${
-                i < trustStats.length - 1
-                  ? "md:border-r md:border-secondary/20"
-                  : ""
-              }`}
+              className="relative"
             >
+              {i < trustStats.length - 1 && (
+                <div className="hidden md:block gradient-separator-v absolute right-0 top-2 bottom-2" />
+              )}
               <AnimatedStat
                 value={stat.value}
                 label={stat.label}
@@ -395,6 +413,7 @@ function CredentialsTrustBar() {
 }
 
 function Transformation() {
+  /* Transformation section */
   return (
     <section className="bg-white py-20 md:py-28 px-4">
       <div className="max-w-3xl mx-auto text-center">
@@ -489,7 +508,7 @@ function ThoughtLeadershipPreview() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.6, delay: i * 0.2 }}
-              className="aspect-[3/4] bg-background rounded-xl border-2 border-secondary/40 flex flex-col items-center justify-center p-8"
+              className="aspect-[3/4] glass-card gradient-border rounded-xl flex flex-col items-center justify-center p-8 shimmer-hover"
             >
               <BookOpen className="w-12 h-12 text-secondary mb-4" />
               <p className="font-heading font-bold text-primary text-lg mb-2">

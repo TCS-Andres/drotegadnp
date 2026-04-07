@@ -197,7 +197,7 @@ function ContactSection() {
       <div className="max-w-6xl mx-auto">
         <div className="grid lg:grid-cols-2 gap-14">
           {/* Left - Form */}
-          <motion.div {...fadeUp}>
+          <motion.div {...fadeUp} className="glass-card rounded-2xl p-6 md:p-8">
             <ContactForm />
           </motion.div>
 
@@ -207,7 +207,7 @@ function ContactSection() {
             transition={{ duration: 0.6, delay: 0.15 }}
             className="space-y-8"
           >
-            <div className="bg-surface rounded-2xl p-8 space-y-6">
+            <div className="glass-card rounded-2xl p-8 space-y-6">
               <a
                 href="tel:3059780288"
                 className="flex items-center gap-4 group"
@@ -328,14 +328,16 @@ function WhatToExpect() {
         </motion.h2>
 
         <div className="relative grid md:grid-cols-3 gap-12 md:gap-8">
-          {/* Connecting line - desktop */}
+          {/* Connecting line - desktop (gradient) */}
           <div
-            className="hidden md:block absolute top-7 left-[calc(16.667%+28px)] right-[calc(16.667%+28px)] h-0.5 bg-secondary/30"
+            className="hidden md:block absolute top-7 left-[calc(16.667%+28px)] right-[calc(16.667%+28px)] h-0.5"
+            style={{ background: 'linear-gradient(90deg, rgba(201,162,39,0.1), rgba(201,162,39,0.5), rgba(201,162,39,0.1))' }}
             aria-hidden="true"
           />
-          {/* Connecting line - mobile */}
+          {/* Connecting line - mobile (gradient) */}
           <div
-            className="md:hidden absolute top-0 bottom-0 left-7 w-0.5 bg-secondary/30"
+            className="md:hidden absolute top-0 bottom-0 left-7 w-0.5"
+            style={{ background: 'linear-gradient(180deg, rgba(201,162,39,0.1), rgba(201,162,39,0.5), rgba(201,162,39,0.1))' }}
             aria-hidden="true"
           />
 
@@ -348,12 +350,12 @@ function WhatToExpect() {
               transition={{ duration: 0.6, delay: i * 0.3 }}
               className="relative flex md:flex-col items-start md:items-center text-left md:text-center gap-5 md:gap-0"
             >
-              <div className="relative z-10 w-14 h-14 rounded-full bg-secondary flex items-center justify-center flex-shrink-0 md:mb-6">
+              <div className="relative z-10 w-14 h-14 rounded-full bg-secondary shadow-gold-glow flex items-center justify-center flex-shrink-0 md:mb-6">
                 <span className="text-primary font-heading font-bold text-xl">
                   {step.num}
                 </span>
               </div>
-              <div>
+              <div className="glass-card rounded-xl p-4 md:p-0 md:bg-transparent md:backdrop-blur-none md:border-0 md:shadow-none">
                 <h3 className="text-xl font-heading font-bold text-primary mb-2">
                   {step.title}
                 </h3>
@@ -371,7 +373,7 @@ function WhatToExpect() {
 
 function ContactPreFooter() {
   return (
-    <section className="bg-accent py-20 px-4">
+    <section className="relative py-20 px-4 overflow-hidden mesh-gradient-accent">
       <div className="max-w-3xl mx-auto text-center">
         <h2 className="text-3xl md:text-4xl font-heading font-bold text-secondary mb-6">
           Have Questions? Call Us Directly.

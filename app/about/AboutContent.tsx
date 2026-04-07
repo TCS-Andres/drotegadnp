@@ -234,7 +234,7 @@ function Credentials() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="bg-white rounded-xl p-6 shadow-sm"
+              className="glass-card shimmer-hover rounded-xl p-6 shadow-glass"
             >
               <div className="w-12 h-12 rounded-full bg-secondary/15 flex items-center justify-center mb-4">
                 <cred.icon className="w-6 h-6 text-secondary" />
@@ -275,7 +275,8 @@ function Values() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="bg-surface rounded-xl p-6 border-l-4 border-secondary hover:-translate-y-1 hover:shadow-lg transition-all duration-300"
+              className="glass-card rounded-xl p-6 hover:-translate-y-1 hover:shadow-gold-glow transition-all duration-300"
+              style={{ borderLeft: '4px solid transparent', borderImage: 'linear-gradient(180deg, #C9A227, #E8D48B, #C9A227) 1' }}
             >
               <h3 className="text-lg font-heading font-bold text-primary mb-2">
                 {value.title}
@@ -293,8 +294,12 @@ function Values() {
 
 function IntegratedVision() {
   return (
-    <section className="bg-accent py-20 md:py-28 px-4">
-      <div className="max-w-5xl mx-auto text-center">
+    <section className="relative py-20 md:py-28 px-4 overflow-hidden mesh-gradient-accent">
+      {/* Floating shapes */}
+      <div className="floating-shape w-56 h-56 border border-secondary animate-float-slow" style={{ top: '5%', right: '5%', opacity: 0.08, background: 'transparent' }} />
+      <div className="floating-shape w-40 h-40 bg-secondary animate-float-medium" style={{ bottom: '10%', left: '3%', opacity: 0.05 }} />
+      <div className="floating-shape w-24 h-24 border border-secondary/40 animate-float-fast" style={{ top: '50%', left: '20%', opacity: 0.07, background: 'transparent' }} />
+      <div className="relative z-10 max-w-5xl mx-auto text-center">
         <motion.h2
           {...fadeUp}
           className="text-3xl md:text-[40px] font-heading font-bold text-white leading-tight mb-6"

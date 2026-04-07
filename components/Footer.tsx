@@ -18,7 +18,9 @@ const legalLinks = [
 
 export default function Footer() {
   return (
-    <footer className="bg-primary text-background" role="contentinfo">
+    <footer className="relative text-background overflow-hidden" role="contentinfo" style={{ background: 'linear-gradient(180deg, #222222 0%, #1A1A1A 30%, #151515 100%)' }}>
+      {/* Gold gradient separator at top */}
+      <div className="gradient-separator w-full" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Brand */}
@@ -99,10 +101,10 @@ export default function Footer() {
                 </li>
               ))}
             </ul>
-            <div className="flex gap-4">
+            <div className="flex gap-3">
               <a
                 href={brand.social.instagram}
-                className="text-background/60 hover:text-secondary transition-colors"
+                className="glass-card-dark rounded-lg px-3 py-1.5 text-background/70 hover:text-secondary transition-all duration-200 text-sm"
                 aria-label="Follow us on Instagram"
                 rel="noopener noreferrer"
               >
@@ -110,7 +112,7 @@ export default function Footer() {
               </a>
               <a
                 href={brand.social.facebook}
-                className="text-background/60 hover:text-secondary transition-colors"
+                className="glass-card-dark rounded-lg px-3 py-1.5 text-background/70 hover:text-secondary transition-all duration-200 text-sm"
                 aria-label="Follow us on Facebook"
                 rel="noopener noreferrer"
               >
@@ -118,7 +120,7 @@ export default function Footer() {
               </a>
               <a
                 href={brand.social.linkedin}
-                className="text-background/60 hover:text-secondary transition-colors"
+                className="glass-card-dark rounded-lg px-3 py-1.5 text-background/70 hover:text-secondary transition-all duration-200 text-sm"
                 aria-label="Connect with us on LinkedIn"
                 rel="noopener noreferrer"
               >

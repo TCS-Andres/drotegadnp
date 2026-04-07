@@ -45,9 +45,10 @@ export default function Navbar() {
         aria-label="Main navigation"
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           scrolled
-            ? "bg-white/95 backdrop-blur-md shadow-lg"
+            ? "bg-white/80 backdrop-blur-xl shadow-glass"
             : "bg-white"
         }`}
+        style={scrolled ? { borderBottom: '1px solid transparent', borderImage: 'linear-gradient(90deg, transparent, rgba(201,162,39,0.3), transparent) 1' } : undefined}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-20">
@@ -89,7 +90,7 @@ export default function Navbar() {
                           animate={{ opacity: 1, y: 0 }}
                           exit={{ opacity: 0, y: 8 }}
                           transition={{ duration: 0.2, ease: "easeOut" }}
-                          className="absolute top-full left-0 mt-2 w-56 bg-white rounded-lg shadow-xl border border-gray-100 overflow-hidden"
+                          className="absolute top-full left-0 mt-2 w-56 bg-white/80 backdrop-blur-xl rounded-lg shadow-glass-lg border border-white/40 overflow-hidden"
                           role="menu"
                         >
                           {services.map((s) => (

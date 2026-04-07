@@ -91,6 +91,7 @@ export default function ServicePageTemplate({
       </section>
 
       {/* Section 2 - Services */}
+      <div className="gradient-separator" />
       <section className="bg-white py-20 md:py-28 px-4">
         <div className="max-w-5xl mx-auto">
           {services.map((service, i) => {
@@ -109,7 +110,7 @@ export default function ServicePageTemplate({
                   } items-center gap-8 md:gap-14 py-12`}
                 >
                   <div className="flex-shrink-0">
-                    <div className="w-20 h-20 rounded-2xl bg-secondary/10 flex items-center justify-center">
+                    <div className="w-20 h-20 rounded-2xl glass-card flex items-center justify-center shadow-gold-glow">
                       <Icon className="w-10 h-10 text-secondary" />
                     </div>
                   </div>
@@ -133,6 +134,7 @@ export default function ServicePageTemplate({
       </section>
 
       {/* Section 3 - Why Choose */}
+      <div className="gradient-separator" />
       <section className="bg-surface py-20 md:py-28 px-4">
         <div className="max-w-3xl mx-auto">
           <motion.h2
@@ -149,9 +151,9 @@ export default function ServicePageTemplate({
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="flex items-start gap-4"
+                className="flex items-start gap-4 glass-card rounded-xl p-4"
               >
-                <div className="flex-shrink-0 w-7 h-7 rounded-full bg-secondary/15 flex items-center justify-center mt-0.5">
+                <div className="flex-shrink-0 w-7 h-7 rounded-full bg-secondary/20 flex items-center justify-center mt-0.5 shadow-gold-glow">
                   <Check className="w-4 h-4 text-secondary" />
                 </div>
                 <p className="text-lg text-[#2D2D2D] font-body">{item}</p>
