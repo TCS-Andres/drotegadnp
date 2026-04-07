@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import MobileStickyBar from "@/components/MobileStickyBar";
+import Preloader from "@/components/Preloader";
 import Script from "next/script";
 
 const playfairDisplay = Playfair_Display({
@@ -111,6 +112,7 @@ export default function RootLayout({
       <body
         className={`${playfairDisplay.variable} ${inter.variable} font-body antialiased bg-background text-text-primary`}
       >
+        <Preloader />
         <a href="#main-content" className="skip-to-content">
           Skip to content
         </a>
