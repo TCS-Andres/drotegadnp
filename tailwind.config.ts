@@ -1,4 +1,6 @@
 import type { Config } from "tailwindcss";
+// @ts-expect-error - no type declarations for internal tailwind utility
+import flattenColorPalette from "tailwindcss/lib/util/flattenColorPalette";
 
 const config: Config = {
   content: [
@@ -6,6 +8,7 @@ const config: Config = {
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+  darkMode: "class",
   theme: {
     extend: {
       colors: {
@@ -27,14 +30,15 @@ const config: Config = {
       boxShadow: {
         "gold-glow": "0 0 20px rgba(201, 162, 39, 0.15)",
         "gold-glow-lg": "0 0 40px rgba(201, 162, 39, 0.2)",
-        "glass": "0 8px 32px rgba(0, 0, 0, 0.06)",
+        glass: "0 8px 32px rgba(0, 0, 0, 0.06)",
         "glass-lg": "0 12px 48px rgba(0, 0, 0, 0.08)",
       },
       animation: {
         "float-slow": "float-slow 8s ease-in-out infinite",
         "float-medium": "float-medium 6s ease-in-out infinite",
         "float-fast": "float-fast 4s ease-in-out infinite",
-        "shimmer": "shimmer 2.5s ease-in-out infinite",
+        shimmer: "shimmer 2.5s ease-in-out infinite",
+        aurora: "aurora 60s linear infinite",
       },
       keyframes: {
         "float-slow": {
@@ -53,9 +57,23 @@ const config: Config = {
           "0%": { backgroundPosition: "-200% 0" },
           "100%": { backgroundPosition: "200% 0" },
         },
+        aurora: {
+          from: { backgroundPosition: "50% 50%, 50% 50%" },
+          to: { backgroundPosition: "350% 50%, 350% 50%" },
+        },
       },
     },
   },
-  plugins: [],
+  plugins: [addVariablesForColors],
 };
+
+// Adds each Tailwind color as a global CSS variable, e.g. var(--gray-200)
+function addVariablesForColors({ addBase, theme }: { addBase: Function; theme: Function }) {
+  const allColors = flattenColorPalette(theme("colors"));
+  const newVars = Object.fromEntries(
+    Object.entries(allColors).map(([key, val]) => [`--${key}`, val])
+  );
+  addBase({ ":root": newVars });
+}
+
 export default config;

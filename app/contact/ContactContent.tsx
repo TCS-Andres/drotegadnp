@@ -42,8 +42,11 @@ const visitSteps = [
 
 function Hero() {
   return (
-    <section className="bg-background py-20 md:py-28 px-4">
-      <div className="max-w-4xl mx-auto text-center">
+    <section className="relative bg-background py-20 md:py-28 px-4 overflow-hidden">
+      {/* Subtle warm gradient */}
+      <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse 70% 60% at 50% 80%, rgba(201, 162, 39, 0.06) 0%, transparent 60%), radial-gradient(ellipse 50% 50% at 80% 20%, rgba(107, 28, 42, 0.03) 0%, transparent 50%)' }} />
+      <div className="floating-shape w-56 h-56 border border-secondary/15 animate-float-slow" style={{ top: '5%', left: '-3%', opacity: 0.04, background: 'transparent' }} />
+      <div className="relative z-10 max-w-4xl mx-auto text-center">
         <motion.h1
           {...fadeUp}
           className="text-4xl sm:text-5xl md:text-[56px] font-heading font-bold text-primary leading-tight mb-6"
@@ -285,8 +288,11 @@ function ContactSection() {
 
 function Booking() {
   return (
-    <section className="bg-surface py-20 md:py-28 px-4">
-      <div className="max-w-3xl mx-auto text-center">
+    <section className="relative bg-surface py-20 md:py-28 px-4 overflow-hidden">
+      {/* Subtle background treatment */}
+      <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse 60% 50% at 50% 50%, rgba(201, 162, 39, 0.04) 0%, transparent 60%)' }} />
+      <div className="floating-shape w-48 h-48 border border-secondary/10 animate-float-medium" style={{ top: '10%', right: '-2%', opacity: 0.04, background: 'transparent' }} />
+      <div className="relative z-10 max-w-3xl mx-auto text-center">
         <motion.h2
           {...fadeUp}
           className="text-3xl md:text-[40px] font-heading font-bold text-primary leading-tight mb-8"

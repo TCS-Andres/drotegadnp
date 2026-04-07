@@ -219,3 +219,26 @@ body {
   pointer-events: none;
   z-index: 0;
 }
+
+/* Aurora effect with warm gold/cream brand tones */
+.aurora-gold {
+  --blue-500: rgba(201, 162, 39, 1);
+  --indigo-300: rgba(232, 212, 139, 1);
+  --blue-300: rgba(240, 235, 225, 1);
+  --violet-200: rgba(201, 162, 39, 0.5);
+  --blue-400: rgba(107, 28, 42, 0.3);
+}
+
+/* Subtle warm radial glow for light sections */
+.warm-radial-glow {
+  background:
+    radial-gradient(ellipse 70% 50% at 20% 80%, rgba(201, 162, 39, 0.06) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 60% at 80% 20%, rgba(107, 28, 42, 0.04) 0%, transparent 50%);
+}
+
+/* Subtle animated gradient for card sections */
+.subtle-gradient-shift {
+  background:
+    radial-gradient(ellipse 60% 50% at 30% 70%, rgba(201, 162, 39, 0.05) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 60% at 70% 30%, rgba(240, 235, 225, 0.4) 0%, transparent 50%);
+}

@@ -6,6 +6,7 @@ import { motion, useInView } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
 import { Heart, FlaskConical, TrendingUp, BookOpen } from "lucide-react";
 import PreFooterCTA from "@/components/PreFooterCTA";
+import { AuroraBackground } from "@/components/ui/aurora-background";
 
 const credentials = ["DNP", "FNP-C", "PMHNP-BC", "LFP"];
 
@@ -138,9 +139,13 @@ function Hero() {
 
 function Problem() {
   return (
-    <section className="relative bg-background py-20 md:py-28 px-4 overflow-hidden">
+    <AuroraBackground
+      className="aurora-gold !bg-background py-20 md:py-28 px-4 overflow-hidden"
+      showRadialGradient={true}
+      auroraOpacity={0.18}
+    >
       {/* Subtle gradient transition from hero */}
-      <div className="absolute top-0 left-0 right-0 h-32 pointer-events-none" style={{ background: 'linear-gradient(180deg, rgba(26,26,26,0.04) 0%, transparent 100%)' }} />
+      <div className="absolute top-0 left-0 right-0 h-32 pointer-events-none z-[1]" style={{ background: 'linear-gradient(180deg, rgba(26,26,26,0.04) 0%, transparent 100%)' }} />
       {/* Decorative gold blob */}
       <div className="floating-shape w-72 h-72 bg-secondary animate-float-slow" style={{ top: '20%', right: '-5%', opacity: 0.03 }} />
       <div className="relative z-10 max-w-3xl mx-auto text-center">
@@ -169,7 +174,7 @@ function Problem() {
           ))}
         </div>
       </div>
-    </section>
+    </AuroraBackground>
   );
 }
 
@@ -415,8 +420,14 @@ function CredentialsTrustBar() {
 function Transformation() {
   /* Transformation section */
   return (
-    <section className="bg-white py-20 md:py-28 px-4">
-      <div className="max-w-3xl mx-auto text-center">
+    <section className="relative bg-white py-20 md:py-28 px-4 overflow-hidden">
+      {/* Subtle warm radial gradient */}
+      <div className="absolute inset-0 pointer-events-none warm-radial-glow" />
+      {/* Floating decorative shapes */}
+      <div className="floating-shape w-80 h-80 border border-secondary/20 animate-float-slow" style={{ top: '-8%', right: '-4%', opacity: 0.06, background: 'transparent' }} />
+      <div className="floating-shape w-48 h-48 bg-secondary animate-float-medium" style={{ bottom: '10%', left: '-3%', opacity: 0.03 }} />
+      <div className="floating-shape w-24 h-24 border border-accent/20 animate-float-fast" style={{ top: '60%', right: '10%', opacity: 0.05, background: 'transparent' }} />
+      <div className="relative z-10 max-w-3xl mx-auto text-center">
         <motion.h2
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}

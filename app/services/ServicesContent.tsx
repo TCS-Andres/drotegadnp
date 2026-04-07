@@ -94,8 +94,13 @@ const audiences = [
 
 function Hero() {
   return (
-    <section className="bg-background py-20 md:py-28 px-4">
-      <div className="max-w-4xl mx-auto text-center">
+    <section className="relative bg-background py-20 md:py-28 px-4 overflow-hidden">
+      {/* Subtle warm radial gradient */}
+      <div className="absolute inset-0 pointer-events-none warm-radial-glow" />
+      {/* Floating decorative shapes */}
+      <div className="floating-shape w-72 h-72 border border-secondary/20 animate-float-slow" style={{ top: '-5%', right: '-3%', opacity: 0.05, background: 'transparent' }} />
+      <div className="floating-shape w-48 h-48 bg-secondary animate-float-medium" style={{ bottom: '5%', left: '-2%', opacity: 0.03 }} />
+      <div className="relative z-10 max-w-4xl mx-auto text-center">
         <motion.h1
           {...fadeUp}
           className="text-4xl sm:text-5xl md:text-[56px] font-heading font-bold text-primary leading-tight mb-6"
@@ -214,8 +219,12 @@ function WhyIntegratedCare() {
 
 function WhoWeServe() {
   return (
-    <section className="bg-white py-20 md:py-28 px-4">
-      <div className="max-w-6xl mx-auto">
+    <section className="relative bg-white py-20 md:py-28 px-4 overflow-hidden">
+      {/* Subtle animated gradient */}
+      <div className="absolute inset-0 pointer-events-none subtle-gradient-shift" />
+      {/* Faint floating shape */}
+      <div className="floating-shape w-64 h-64 border border-secondary/15 animate-float-slow" style={{ bottom: '5%', right: '-2%', opacity: 0.04, background: 'transparent' }} />
+      <div className="relative z-10 max-w-6xl mx-auto">
         <motion.h2
           {...fadeUp}
           className="text-3xl md:text-[40px] font-heading font-bold text-primary leading-tight text-center mb-14"

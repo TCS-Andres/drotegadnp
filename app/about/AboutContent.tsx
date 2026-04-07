@@ -170,8 +170,12 @@ function Hero() {
 
 function HerStory() {
   return (
-    <section className="bg-white py-20 md:py-28 px-4">
-      <div className="max-w-[800px] mx-auto">
+    <section className="relative bg-white py-20 md:py-28 px-4 overflow-hidden">
+      {/* Subtle decorative gradient */}
+      <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse 60% 50% at 80% 80%, rgba(201, 162, 39, 0.05) 0%, transparent 60%), radial-gradient(ellipse 50% 40% at 10% 20%, rgba(107, 28, 42, 0.03) 0%, transparent 50%)' }} />
+      {/* Faint floating accent */}
+      <div className="floating-shape w-56 h-56 border border-secondary/15 animate-float-slow" style={{ top: '10%', right: '-3%', opacity: 0.04, background: 'transparent' }} />
+      <div className="relative z-10 max-w-[800px] mx-auto">
         <motion.h2
           {...fadeUp}
           className="text-3xl md:text-[40px] font-heading font-bold text-accent leading-tight mb-10"
@@ -217,8 +221,12 @@ function HerStory() {
 
 function Credentials() {
   return (
-    <section className="bg-surface py-20 md:py-28 px-4">
-      <div className="max-w-5xl mx-auto">
+    <section className="relative bg-surface py-20 md:py-28 px-4 overflow-hidden">
+      {/* Very subtle floating shapes */}
+      <div className="floating-shape w-72 h-72 bg-secondary animate-float-slow" style={{ top: '-5%', left: '-4%', opacity: 0.03 }} />
+      <div className="floating-shape w-40 h-40 border border-accent/20 animate-float-medium" style={{ bottom: '8%', right: '-2%', opacity: 0.04, background: 'transparent' }} />
+      <div className="floating-shape w-20 h-20 bg-secondary animate-float-fast" style={{ top: '50%', right: '8%', opacity: 0.025 }} />
+      <div className="relative z-10 max-w-5xl mx-auto">
         <motion.h2
           {...fadeUp}
           className="text-3xl md:text-[40px] font-heading font-bold text-primary leading-tight text-center mb-14"
