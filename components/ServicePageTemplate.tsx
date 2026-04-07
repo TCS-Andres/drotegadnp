@@ -52,30 +52,40 @@ export default function ServicePageTemplate({
   return (
     <>
       {/* Section 1 - Hero */}
-      {heroImage && (
-        <div className="w-full h-64 md:h-80 relative">
-          <Image
-            src={heroImage}
-            alt={heroImageAlt || title}
-            fill
-            className="object-cover"
-            priority
-          />
-          <div className="absolute inset-0 bg-primary/40" />
-        </div>
-      )}
-      <section className="bg-background py-20 md:py-28 px-4">
-        <div className="max-w-4xl mx-auto text-center">
+      <section
+        className={`relative flex items-center justify-center px-4 overflow-hidden ${
+          heroImage
+            ? "min-h-[60vh] md:min-h-[70vh]"
+            : "bg-background py-20 md:py-28"
+        }`}
+      >
+        {heroImage && (
+          <>
+            <Image
+              src={heroImage}
+              alt={heroImageAlt || title}
+              fill
+              className="object-cover object-center"
+              priority
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/50 to-primary/30" />
+          </>
+        )}
+        <div className="relative z-10 max-w-4xl mx-auto text-center py-16 md:py-24">
           <motion.h1
             {...fadeUp}
-            className="text-4xl sm:text-5xl md:text-[56px] font-heading font-bold text-primary leading-tight mb-6"
+            className={`text-4xl sm:text-5xl md:text-[56px] font-heading font-bold leading-tight mb-6 ${
+              heroImage ? "text-white drop-shadow-lg" : "text-primary"
+            }`}
           >
             {title}
           </motion.h1>
           <motion.p
             {...fadeUp}
             transition={{ duration: 0.6, delay: 0.15 }}
-            className="text-lg md:text-xl text-[#2D2D2D] font-body mb-10 max-w-2xl mx-auto"
+            className={`text-lg md:text-xl font-body mb-10 max-w-2xl mx-auto ${
+              heroImage ? "text-[#FAF7F2]/90" : "text-[#2D2D2D]"
+            }`}
           >
             {subtitle}
           </motion.p>

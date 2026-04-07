@@ -51,15 +51,15 @@ export default function Navbar() {
         style={scrolled ? { borderBottom: '1px solid transparent', borderImage: 'linear-gradient(90deg, transparent, rgba(201,162,39,0.3), transparent) 1' } : undefined}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-20">
+          <div className="flex items-center justify-between h-24 md:h-28">
             {/* Logo */}
             <Link href="/" className="flex-shrink-0" aria-label="Dr. Otega DNP - Home">
               <Image
                 src="/logo.png"
                 alt="Dr. Otega DNP"
-                width={300}
-                height={100}
-                className="h-20 md:h-[100px] w-auto"
+                width={400}
+                height={130}
+                className="h-16 md:h-[100px] w-auto"
                 priority
               />
             </Link>
@@ -152,7 +152,7 @@ export default function Navbar() {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: "100%" }}
             transition={{ type: "tween", duration: 0.3, ease: "easeOut" }}
-            className="fixed inset-0 z-40 bg-primary flex flex-col pt-24 px-8 overflow-y-auto"
+            className="fixed inset-0 z-40 bg-primary flex flex-col pt-28 px-8 overflow-y-auto"
             role="dialog"
             aria-modal="true"
             aria-label="Mobile navigation menu"
@@ -199,7 +199,7 @@ export default function Navbar() {
       </AnimatePresence>
 
       {/* Spacer for fixed navbar */}
-      <div className="h-20" />
+      <div className="h-24 md:h-28" />
     </>
   );
 }

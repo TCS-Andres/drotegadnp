@@ -121,7 +121,7 @@ function Speaking() {
             alt="Dr. Otega speaking at a professional conference"
             width={1200}
             height={675}
-            className="w-full h-64 md:h-80 object-cover"
+            className="w-full h-56 sm:h-72 md:h-96 object-cover object-center"
           />
         </motion.div>
 
@@ -191,7 +191,7 @@ function Workshops() {
             alt="Dr. Otega leading a community health and wellness workshop"
             width={1200}
             height={675}
-            className="w-full h-64 md:h-80 object-cover"
+            className="w-full h-56 sm:h-72 md:h-96 object-cover object-center"
           />
         </motion.div>
 
