@@ -56,9 +56,9 @@ export default function Navbar() {
               <Image
                 src="/logo.png"
                 alt="Dr. Otega DNP"
-                width={150}
-                height={50}
-                className="h-10 md:h-[50px] w-auto"
+                width={300}
+                height={100}
+                className="h-20 md:h-[100px] w-auto"
                 priority
               />
             </Link>
