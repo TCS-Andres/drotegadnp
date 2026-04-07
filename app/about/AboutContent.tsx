@@ -3,7 +3,21 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Award, Heart, TrendingUp, BookOpen, Users, Shield } from "lucide-react";
+import {
+  GraduationCap,
+  HeartPulse,
+  Brain,
+  TrendingUp,
+  Clock,
+  Sparkles,
+  BookOpen,
+  Layers,
+  ShieldCheck,
+  Zap,
+  Users,
+  Heart,
+  FlaskConical,
+} from "lucide-react";
 import PreFooterCTA from "@/components/PreFooterCTA";
 
 const fadeUp = {
@@ -14,34 +28,102 @@ const fadeUp = {
 };
 
 const credentials = [
-  { label: "Doctor of Nursing Practice (DNP)", icon: Award },
-  { label: "Family Nurse Practitioner — Board Certified (FNP-C)", icon: Heart },
-  { label: "Psychiatric Mental Health NP — Board Certified (PMHNP-BC)", icon: Shield },
-  { label: "Licensed Financial Professional (LFP)", icon: TrendingUp },
-  { label: "Published Author & Speaker", icon: BookOpen },
-  { label: "20+ Years of Clinical Experience", icon: Users },
+  {
+    abbr: "DNP",
+    icon: GraduationCap,
+    name: "Doctor of Nursing Practice",
+    description: "The highest level of clinical nursing education.",
+  },
+  {
+    abbr: "FNP-C",
+    icon: HeartPulse,
+    name: "Board-Certified Family Nurse Practitioner",
+    description: "Primary and preventive care across the lifespan.",
+  },
+  {
+    abbr: "PMHNP-BC",
+    icon: Brain,
+    name: "Board-Certified Psychiatric Mental Health NP",
+    description:
+      "Mental health evaluation, treatment, and medication management.",
+  },
+  {
+    abbr: "LFP",
+    icon: TrendingUp,
+    name: "Licensed Financial Professional",
+    description:
+      "Income protection, life insurance, annuities, and wealth-building strategies.",
+  },
+  {
+    abbr: "20+",
+    icon: Clock,
+    name: "Years Combined Experience",
+    description: "Over two decades of clinical and real-world expertise.",
+  },
 ];
 
-const milestones = [
+const values = [
   {
-    title: "Clinical Excellence",
+    title: "Prevention Over Reaction",
     description:
-      "Over two decades of hands-on experience in primary care, psychiatric mental health, and preventive medicine. Dr. Otega has cared for thousands of patients across diverse communities.",
+      "The best care prevents disease and financial crisis before they start.",
+    icon: ShieldCheck,
   },
   {
-    title: "Lab Ownership",
+    title: "Education as Empowerment",
     description:
-      "As owner of ARCpoint Labs of North Miami Beach, Dr. Otega brings direct access to advanced diagnostic testing — from DNA and genetic testing to DOT compliance screenings.",
+      "When people understand their numbers, they can take control.",
+    icon: BookOpen,
   },
   {
-    title: "Financial Empowerment",
+    title: "Holistic Integration",
     description:
-      "As a Licensed Financial Professional, Dr. Otega bridges the gap between health and wealth — offering income protection, financial needs analysis, and literacy education.",
+      "Health, mental health, and finances are interconnected — not separate.",
+    icon: Layers,
   },
   {
-    title: "Thought Leadership",
+    title: "Accessibility & Equity",
     description:
-      "A published author, keynote speaker, and community educator, Dr. Otega is on a mission to inform, empower, and uplift individuals and families across South Florida and beyond.",
+      "Expert-level care should not be reserved for the privileged.",
+    icon: Users,
+  },
+  {
+    title: "Integrity & Trust",
+    description:
+      "Every service delivered within its licensed and regulated scope.",
+    icon: ShieldCheck,
+  },
+  {
+    title: "Transformation Over Transaction",
+    description:
+      "Every interaction is an opportunity to inform, empower, and uplift.",
+    icon: Sparkles,
+  },
+  {
+    title: "Excellence & Authority",
+    description: "Evidence-based, expert-level care — not opinions.",
+    icon: Zap,
+  },
+];
+
+const pillars = [
+  {
+    name: "Complete Health Inc.",
+    label: "Health & Clinical",
+    icon: Heart,
+    href: "/services/health",
+  },
+  {
+    name: "ARCpoint Labs",
+    label: "Lab & Diagnostics",
+    icon: FlaskConical,
+    href: "/services/lab-testing",
+  },
+  {
+    name: "Wealth & Health Consulting",
+    label: "Financial Wellness",
+    icon: TrendingUp,
+    href: "/services/financial-wellness",
   },
 ];
 
@@ -51,75 +133,83 @@ function Hero() {
       <div className="max-w-4xl mx-auto text-center">
         <motion.h1
           {...fadeUp}
-          className="text-4xl sm:text-5xl md:text-[56px] font-heading font-bold text-primary leading-tight mb-6"
+          className="text-4xl sm:text-5xl md:text-[56px] font-heading font-bold text-primary leading-tight mb-8"
         >
-          About Dr. Otega Ojukwu
+          The Person Behind the Mission
         </motion.h1>
-        <motion.p
+
+        <motion.div
           {...fadeUp}
           transition={{ duration: 0.6, delay: 0.15 }}
-          className="text-lg md:text-xl text-[#2D2D2D] font-body max-w-2xl mx-auto"
+          className="max-w-sm mx-auto mb-10"
         >
-          Doctor of Nursing Practice. Dual Board-Certified NP. Licensed
-          Financial Professional. Published Author. Speaker. One mission.
+          <Image
+            src="/portrait.jpg"
+            alt="Dr. Otega Ojukwu, DNP, LFP"
+            width={500}
+            height={667}
+            className="w-full rounded-2xl object-cover"
+            priority
+          />
+        </motion.div>
+
+        <motion.p
+          {...fadeUp}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="text-lg md:text-xl text-[#2D2D2D] font-body leading-relaxed max-w-3xl mx-auto"
+        >
+          Dr. Otega Ojukwu is more than a healthcare provider or financial
+          professional. She is a mission-driven builder, educator, and advocate
+          who created an entirely new category of care — one that sees the whole
+          person, not just a diagnosis or a spreadsheet.
         </motion.p>
       </div>
     </section>
   );
 }
 
-function Story() {
+function HerStory() {
   return (
     <section className="bg-white py-20 md:py-28 px-4">
-      <div className="max-w-6xl mx-auto">
-        <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
-          {/* Portrait */}
-          <motion.div
-            initial={{ opacity: 0, x: -60 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.7 }}
-          >
-            <Image
-              src="/portrait.jpg"
-              alt="Dr. Otega Ojukwu, DNP, LFP"
-              width={500}
-              height={667}
-              className="w-full max-w-md mx-auto rounded-2xl object-cover"
-            />
-          </motion.div>
+      <div className="max-w-[800px] mx-auto">
+        <motion.h2
+          {...fadeUp}
+          className="text-3xl md:text-[40px] font-heading font-bold text-accent leading-tight mb-10"
+        >
+          Health and Wealth Are Inseparable
+        </motion.h2>
 
-          {/* Bio */}
-          <motion.div
-            initial={{ opacity: 0, x: 60 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.7 }}
-          >
-            <h2 className="text-3xl md:text-[40px] font-heading font-bold text-primary leading-tight mb-6">
-              The Woman Behind the Mission
-            </h2>
-            <p className="text-lg text-[#2D2D2D] font-body leading-relaxed mb-4">
-              Dr. Otega Ojukwu is a Doctor of Nursing Practice, dual
-              board-certified Family Nurse Practitioner and Psychiatric Mental
-              Health Nurse Practitioner, Licensed Financial Professional,
-              published author, and speaker with over 20 years of experience.
-            </p>
-            <p className="text-lg text-[#2D2D2D] font-body leading-relaxed mb-4">
-              She is the only provider in South Florida who integrates physical
-              health, mental health, and financial wellness under one brand —
-              because she believes you cannot build wealth if your health is
-              failing, and you cannot maintain health if financial stress is
-              overwhelming you.
-            </p>
-            <p className="text-lg text-[#2D2D2D] font-body leading-relaxed">
-              Her approach is rooted in a simple truth: your health numbers and
-              your financial numbers are deeply connected. When you understand
-              both, you can take control of your future — and build something
-              that lasts for generations.
-            </p>
-          </motion.div>
-        </div>
+        <motion.p
+          {...fadeUp}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="text-lg text-[#2D2D2D] font-body leading-relaxed mb-6"
+        >
+          Dr. Otega operates with a transformation-over-transaction mindset. She
+          does not see herself as simply a healthcare provider or a financial
+          advisor — she is a life strategist who helps people gain clarity,
+          protection, and generational wealth.
+        </motion.p>
+
+        <motion.p
+          {...fadeUp}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="text-lg text-[#2D2D2D] font-body leading-relaxed mb-6"
+        >
+          Her philosophy is built on a conviction: people cannot build wealth if
+          their health is failing, and they cannot maintain health if financial
+          stress is overwhelming them. This integrated worldview is what makes
+          her brand unique and her mission urgent.
+        </motion.p>
+
+        <motion.p
+          {...fadeUp}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="text-lg text-[#2D2D2D] font-body leading-relaxed"
+        >
+          She believes deeply in serving underserved communities with the same
+          level of expert care that premium clients receive. Her work is as much
+          a mission as it is a business.
+        </motion.p>
       </div>
     </section>
   );
@@ -133,24 +223,30 @@ function Credentials() {
           {...fadeUp}
           className="text-3xl md:text-[40px] font-heading font-bold text-primary leading-tight text-center mb-14"
         >
-          Credentials & Certifications
+          Expertise You Can Trust
         </motion.h2>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {credentials.map((cred, i) => (
             <motion.div
-              key={cred.label}
+              key={cred.abbr}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="flex items-center gap-4 bg-white rounded-xl p-5 shadow-sm"
+              className="bg-white rounded-xl p-6 shadow-sm"
             >
-              <div className="w-11 h-11 rounded-full bg-secondary/15 flex items-center justify-center flex-shrink-0">
-                <cred.icon className="w-5 h-5 text-secondary" />
+              <div className="w-12 h-12 rounded-full bg-secondary/15 flex items-center justify-center mb-4">
+                <cred.icon className="w-6 h-6 text-secondary" />
               </div>
-              <p className="text-sm font-body font-medium text-primary">
-                {cred.label}
+              <p className="text-2xl font-heading font-bold text-primary mb-1">
+                {cred.abbr}
+              </p>
+              <p className="text-sm font-body font-medium text-primary mb-2">
+                {cred.name}
+              </p>
+              <p className="text-sm text-text-secondary font-body">
+                {cred.description}
               </p>
             </motion.div>
           ))}
@@ -160,7 +256,7 @@ function Credentials() {
   );
 }
 
-function Journey() {
+function Values() {
   return (
     <section className="bg-white py-20 md:py-28 px-4">
       <div className="max-w-5xl mx-auto">
@@ -168,24 +264,24 @@ function Journey() {
           {...fadeUp}
           className="text-3xl md:text-[40px] font-heading font-bold text-primary leading-tight text-center mb-14"
         >
-          A Career Built on Purpose
+          What Drives Dr. Otega
         </motion.h2>
 
-        <div className="grid md:grid-cols-2 gap-8">
-          {milestones.map((item, i) => (
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {values.map((value, i) => (
             <motion.div
-              key={item.title}
+              key={value.title}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.6, delay: i * 0.15 }}
-              className="bg-surface rounded-xl p-8"
+              transition={{ duration: 0.5, delay: i * 0.1 }}
+              className="bg-surface rounded-xl p-6 border-l-4 border-secondary hover:-translate-y-1 hover:shadow-lg transition-all duration-300"
             >
-              <h3 className="text-xl font-heading font-bold text-primary mb-3">
-                {item.title}
+              <h3 className="text-lg font-heading font-bold text-primary mb-2">
+                {value.title}
               </h3>
-              <p className="text-base text-[#2D2D2D] font-body leading-relaxed">
-                {item.description}
+              <p className="text-sm text-[#2D2D2D] font-body leading-relaxed">
+                {value.description}
               </p>
             </motion.div>
           ))}
@@ -195,77 +291,75 @@ function Journey() {
   );
 }
 
-function Philosophy() {
+function IntegratedVision() {
   return (
-    <section
-      className="py-20 md:py-28 px-4"
-      style={{ background: "#1A1A1A" }}
-    >
-      <div className="max-w-3xl mx-auto text-center">
+    <section className="bg-accent py-20 md:py-28 px-4">
+      <div className="max-w-5xl mx-auto text-center">
         <motion.h2
           {...fadeUp}
-          className="text-3xl md:text-[40px] font-heading font-bold text-secondary leading-tight mb-8"
+          className="text-3xl md:text-[40px] font-heading font-bold text-white leading-tight mb-6"
         >
-          The Philosophy
+          One Mission. Three Pillars.
         </motion.h2>
 
         <motion.p
           {...fadeUp}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="text-lg md:text-xl text-[#FAF7F2] font-body leading-relaxed mb-8"
+          className="text-lg text-[#FAF7F2]/80 font-body mb-14 max-w-2xl mx-auto"
         >
-          Dr. Otega does not believe in treating symptoms in isolation. She
-          believes in treating the whole person — body, mind, and financial
-          future. Her integrated model was born from the understanding that
-          health and wealth are two sides of the same coin.
+          Dr. Otega Ojukwu operates across three entities — each serving a
+          distinct pillar of her integrated health and wealth model.
         </motion.p>
 
-        <motion.p
-          {...fadeUp}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-lg text-secondary font-body italic"
-        >
-          &ldquo;Inform. Empower. Uplift. That is not just a tagline — it is
-          the journey every person deserves.&rdquo;
-        </motion.p>
-      </div>
-    </section>
-  );
-}
+        {/* Three pillars connected */}
+        <div className="grid md:grid-cols-3 gap-6 md:gap-0 items-center mb-14">
+          {pillars.map((pillar, i) => (
+            <motion.div
+              key={pillar.name}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.6, delay: i * 0.2 }}
+              className="relative"
+            >
+              {/* Connector line (desktop only) */}
+              {i < pillars.length - 1 && (
+                <div
+                  className="hidden md:block absolute top-1/2 right-0 w-full h-0.5 bg-secondary/30 -translate-y-1/2 z-0"
+                  aria-hidden="true"
+                />
+              )}
 
-function ConnectCTA() {
-  return (
-    <section className="bg-background py-20 md:py-28 px-4">
-      <div className="max-w-3xl mx-auto text-center">
-        <motion.h2
-          {...fadeUp}
-          className="text-3xl md:text-[40px] font-heading font-bold text-primary leading-tight mb-6"
-        >
-          Ready to Work Together?
-        </motion.h2>
+              <Link href={pillar.href} className="relative z-10 block group">
+                <div className="bg-[#FAF7F2]/10 backdrop-blur-sm border border-secondary/30 rounded-2xl p-8 mx-2 hover:bg-[#FAF7F2]/15 transition-colors">
+                  <div className="w-16 h-16 rounded-full bg-secondary/20 flex items-center justify-center mx-auto mb-4">
+                    <pillar.icon className="w-8 h-8 text-secondary" />
+                  </div>
+                  <p className="text-xl font-heading font-bold text-[#FAF7F2] mb-1">
+                    {pillar.name}
+                  </p>
+                  <p className="text-sm text-secondary font-body font-medium">
+                    {pillar.label}
+                  </p>
+                </div>
+              </Link>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Center label */}
         <motion.p
           {...fadeUp}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          className="text-lg text-[#2D2D2D] font-body leading-relaxed mb-10"
+          transition={{ duration: 0.6, delay: 0.5 }}
+          className="text-secondary font-heading font-bold text-lg mb-8"
         >
-          Whether you need clinical care, lab testing, financial guidance, or a
-          speaker for your next event — Dr. Otega is here to help you know your
-          numbers and protect your future.
+          Dr. Otega Ojukwu, DNP, LFP
         </motion.p>
-        <motion.div
-          {...fadeUp}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4"
-        >
-          <Link
-            href="/contact"
-            className="px-8 py-3.5 bg-secondary text-primary font-semibold rounded-full hover:bg-[#b8911f] hover:-translate-y-0.5 transition-all duration-200 text-lg"
-          >
-            Book an Appointment
-          </Link>
+
+        <motion.div {...fadeUp} transition={{ duration: 0.6, delay: 0.6 }}>
           <Link
             href="/services"
-            className="px-8 py-3.5 border-2 border-secondary text-secondary font-semibold rounded-full hover:bg-secondary hover:text-primary transition-all duration-200 text-lg"
+            className="inline-flex items-center px-8 py-3.5 bg-secondary text-primary font-semibold rounded-full hover:bg-[#b8911f] hover:-translate-y-0.5 transition-all duration-200 text-lg"
           >
             Explore Services
           </Link>
@@ -279,11 +373,10 @@ export default function AboutContent() {
   return (
     <>
       <Hero />
-      <Story />
+      <HerStory />
       <Credentials />
-      <Journey />
-      <Philosophy />
-      <ConnectCTA />
+      <Values />
+      <IntegratedVision />
       <PreFooterCTA />
     </>
   );
