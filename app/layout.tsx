@@ -39,15 +39,13 @@ export const metadata: Metadata = {
     title: "Dr. Otega Ojukwu, DNP, LFP | Health + Wealth | North Miami Beach",
     description:
       "Inform. Empower. Uplift. Integrated health, mental wellness, and financial empowerment from Dr. Otega Ojukwu in North Miami Beach, FL.",
-    // TODO: Replace with actual OG image
-    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "Dr. Otega DNP" }],
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "Dr. Otega Ojukwu, DNP, LFP — Inform. Empower. Uplift." }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Dr. Otega Ojukwu, DNP, LFP | Health + Wealth",
     description:
       "Inform. Empower. Uplift. Integrated health, mental wellness, and financial empowerment.",
-    // TODO: Replace with actual OG image
     images: ["/og-image.jpg"],
   },
   alternates: {
