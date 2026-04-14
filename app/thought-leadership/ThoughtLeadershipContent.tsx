@@ -3,7 +3,6 @@
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { BookOpen } from "lucide-react";
 import PreFooterCTA from "@/components/PreFooterCTA";
 
 const fadeUp = {
@@ -52,11 +51,31 @@ function Hero() {
 }
 
 function Books() {
-  // TODO: Replace with actual book covers and Amazon links
   const books = [
-    { title: "Book One", status: "Available on Amazon" },
-    { title: "Book Two", status: "Available on Amazon" },
-    { title: "Book Three", status: "Available on Amazon" },
+    {
+      title: "What Is Your Net Worth?",
+      subtitle: "A Practical Guide to Financial Health, Protection, and Retirement Readiness",
+      description:
+        "A serious work on financial clarity, structural stability, and long-term wealth positioning. Dr. Otega presents a clear, methodical approach to understanding and improving your financial condition — moving you from financial activity to financial stability.",
+      image: "/book-net-worth.jpg",
+      url: "https://www.amazon.com/dp/B0GW2JGVK4",
+    },
+    {
+      title: "The Insurance Producer's Book of Business",
+      subtitle: "A Professional System for Tracking Insured Clients and Policy Owners",
+      description:
+        "A working system for serious producers, advisors, and agency builders. This professional tracking system gives you a clear, structured way to document, manage, and grow your insured clients and policy owners with precision.",
+      image: "/book-insurance-producer.jpg",
+      url: "https://www.amazon.com/dp/B0GV9SM833",
+    },
+    {
+      title: "The Networking Professional's Planner — Quarter 3",
+      subtitle: "A Daily Execution System for Pipeline Control, Follow-Up, and Predictable Production",
+      description:
+        "A precision execution system for professionals who refuse to let summer slow down their business. Build unstoppable Q4 momentum with daily execution pages, pipeline frameworks, and strategic follow-up systems.",
+      image: "/book-networking-planner.jpg",
+      url: "https://www.amazon.com/dp/B0GTDJ5WHR",
+    },
   ];
 
   return (
@@ -77,21 +96,36 @@ function Books() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.6, delay: i * 0.15 }}
-              className="aspect-[3/4] glass-card gradient-border rounded-xl flex flex-col items-center justify-center p-8 shimmer-hover"
+              className="glass-card gradient-border rounded-xl flex flex-col overflow-hidden shimmer-hover"
             >
-              <BookOpen className="w-14 h-14 text-secondary mb-6" />
-              <p className="font-heading font-bold text-primary text-lg mb-2 text-center">
-                {book.title}
-              </p>
-              <p className="text-sm text-text-secondary font-body mb-6">
-                {book.status}
-              </p>
-              <a
-                href="#"
-                className="px-6 py-2.5 border-2 border-secondary text-secondary font-semibold rounded-full hover:bg-secondary hover:text-primary transition-all duration-200 text-sm"
-              >
-                Shop on Amazon
-              </a>
+              <div className="relative w-full aspect-[3/4] bg-[#F5F0E8]">
+                <Image
+                  src={book.image}
+                  alt={`Cover of ${book.title}`}
+                  fill
+                  className="object-contain p-4"
+                  sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
+                />
+              </div>
+              <div className="p-6 flex flex-col flex-1">
+                <h3 className="font-heading font-bold text-primary text-lg mb-1 leading-snug">
+                  {book.title}
+                </h3>
+                <p className="text-xs text-text-secondary font-body italic mb-3">
+                  {book.subtitle}
+                </p>
+                <p className="text-sm text-[#2D2D2D] font-body leading-relaxed mb-6 flex-1">
+                  {book.description}
+                </p>
+                <a
+                  href={book.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center px-6 py-2.5 bg-secondary text-primary font-semibold rounded-full hover:bg-[#b8911f] hover:-translate-y-0.5 transition-all duration-200 text-sm"
+                >
+                  Buy Now
+                </a>
+              </div>
             </motion.div>
           ))}
         </div>
