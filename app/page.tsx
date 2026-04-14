@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion, useInView } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
-import { Heart, FlaskConical, TrendingUp, BookOpen } from "lucide-react";
+import { Heart, FlaskConical, TrendingUp } from "lucide-react";
 import PreFooterCTA from "@/components/PreFooterCTA";
 import { AuroraBackground } from "@/components/ui/aurora-background";
 
@@ -488,10 +488,22 @@ function Transformation() {
   );
 }
 
-const bookPlaceholders = [
-  { title: "Book One", status: "Available on Amazon" },
-  { title: "Book Two", status: "Coming Soon" },
-  { title: "Book Three", status: "Coming Soon" },
+const books = [
+  {
+    title: "What Is Your Net Worth?",
+    image: "/book-net-worth.jpg",
+    url: "https://www.amazon.com/dp/B0GW2JGVK4",
+  },
+  {
+    title: "The Insurance Producer's Book of Business",
+    image: "/book-insurance-producer.jpg",
+    url: "https://www.amazon.com/dp/B0GV9SM833",
+  },
+  {
+    title: "The Networking Professional's Planner — Q3",
+    image: "/book-networking-planner.jpg",
+    url: "https://www.amazon.com/dp/B0GTDJ5WHR",
+  },
 ];
 
 function ThoughtLeadershipPreview() {
@@ -521,22 +533,37 @@ function ThoughtLeadershipPreview() {
         </motion.p>
 
         <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-8 mb-12">
-          {bookPlaceholders.map((book, i) => (
+          {books.map((book, i) => (
             <motion.div
               key={book.title}
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.6, delay: i * 0.2 }}
-              className="aspect-[3/4] glass-card gradient-border rounded-xl flex flex-col items-center justify-center p-8 shimmer-hover"
+              className="glass-card gradient-border rounded-xl flex flex-col overflow-hidden shimmer-hover"
             >
-              <BookOpen className="w-12 h-12 text-secondary mb-4" />
-              <p className="font-heading font-bold text-primary text-lg mb-2">
-                {book.title}
-              </p>
-              <p className="text-sm text-secondary font-body font-medium">
-                {book.status}
-              </p>
+              <div className="relative w-full aspect-[3/4] bg-[#F5F0E8]">
+                <Image
+                  src={book.image}
+                  alt={`Cover of ${book.title}`}
+                  fill
+                  className="object-contain p-4"
+                  sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
+                />
+              </div>
+              <div className="p-6 flex flex-col items-center text-center">
+                <h3 className="font-heading font-bold text-primary text-lg mb-4 leading-snug">
+                  {book.title}
+                </h3>
+                <a
+                  href={book.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center px-6 py-2.5 bg-secondary text-primary font-semibold rounded-full hover:bg-[#b8911f] hover:-translate-y-0.5 transition-all duration-200 text-sm"
+                >
+                  Buy Now
+                </a>
+              </div>
             </motion.div>
           ))}
         </div>
