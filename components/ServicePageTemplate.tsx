@@ -41,7 +41,17 @@ interface ServicePageTemplateProps {
     description: string;
     ctaLabel: string;
   };
-  whyChooseInstagram?: { url: string; handle: string };
+  whyChooseSocial?: {
+    image: string;
+    imageAlt: string;
+    heading: string;
+    description: string;
+    ctas: Array<{
+      label: string;
+      url: string;
+      icon: "instagram" | "linkedin";
+    }>;
+  };
   crossPillarText: string;
   crossPillarLinks: CrossPillarLink[];
   disclaimerText: string;
@@ -56,7 +66,7 @@ export default function ServicePageTemplate({
   whyChooseTitle,
   whyChooseItems,
   whyChooseWebsite,
-  whyChooseInstagram,
+  whyChooseSocial,
   crossPillarText,
   crossPillarLinks,
   disclaimerText,
@@ -225,7 +235,7 @@ export default function ServicePageTemplate({
       )}
 
       {/* Section 3c - Stay Connected (optional) */}
-      {whyChooseInstagram && (
+      {whyChooseSocial && (
         <>
           <div className="gradient-separator" />
           <section className="bg-white py-16 md:py-20 px-4">
@@ -234,48 +244,67 @@ export default function ServicePageTemplate({
                 {...fadeUp}
                 className="glass-card rounded-2xl overflow-hidden grid md:grid-cols-2 gap-0"
               >
-                <div
-                  className="relative h-64 md:h-auto md:min-h-[320px] flex items-center justify-center"
-                  style={{
-                    background:
-                      "linear-gradient(135deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%)",
-                  }}
-                  aria-hidden="true"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="1.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="w-28 h-28 text-white/95 drop-shadow-[0_4px_12px_rgba(0,0,0,0.25)]"
-                  >
-                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
-                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
-                  </svg>
+                <div className="relative h-64 md:h-auto md:min-h-[360px]">
+                  <Image
+                    src={whyChooseSocial.image}
+                    alt={whyChooseSocial.imageAlt}
+                    fill
+                    className="object-cover object-center"
+                    sizes="(min-width: 768px) 50vw, 100vw"
+                  />
                 </div>
                 <div className="p-8 md:p-10 flex flex-col justify-center">
                   <h3 className="text-2xl md:text-[28px] font-heading font-bold text-primary mb-3 leading-snug">
-                    Follow {whyChooseTitle} on Instagram
+                    {whyChooseSocial.heading}
                   </h3>
                   <p className="text-lg text-[#2D2D2D] font-body leading-relaxed mb-6">
-                    Stay in the loop on screening events, wellness tips, and
-                    behind-the-scenes updates from our team.
+                    {whyChooseSocial.description}
                   </p>
-                  <div>
-                    <a
-                      href={whyChooseInstagram.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-secondary text-primary font-semibold font-body hover:bg-[#b8911f] transition-colors"
-                      aria-label={`Follow ${whyChooseTitle} on Instagram`}
-                    >
-                      <span>Follow {whyChooseInstagram.handle}</span>
-                      <span aria-hidden="true">&rarr;</span>
-                    </a>
+                  <div className="flex flex-col sm:flex-row gap-3">
+                    {whyChooseSocial.ctas.map((cta) => (
+                      <a
+                        key={cta.url}
+                        href={cta.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full bg-secondary text-primary font-semibold font-body hover:bg-[#b8911f] transition-colors"
+                      >
+                        {cta.icon === "instagram" ? (
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            className="w-5 h-5"
+                            aria-hidden="true"
+                          >
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                          </svg>
+                        ) : (
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            className="w-5 h-5"
+                            aria-hidden="true"
+                          >
+                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z" />
+                            <rect x="2" y="9" width="4" height="12" />
+                            <circle cx="4" cy="4" r="2" />
+                          </svg>
+                        )}
+                        <span>{cta.label}</span>
+                      </a>
+                    ))}
                   </div>
                 </div>
               </motion.div>
