@@ -32,6 +32,7 @@ interface ServicePageTemplateProps {
   services: ServiceItem[];
   whyChooseTitle: string;
   whyChooseItems: string[];
+  whyChooseInstagram?: { url: string; handle: string };
   crossPillarText: string;
   crossPillarLinks: CrossPillarLink[];
   disclaimerText: string;
@@ -45,6 +46,7 @@ export default function ServicePageTemplate({
   services,
   whyChooseTitle,
   whyChooseItems,
+  whyChooseInstagram,
   crossPillarText,
   crossPillarLinks,
   disclaimerText,
@@ -170,6 +172,38 @@ export default function ServicePageTemplate({
               </motion.div>
             ))}
           </div>
+          {whyChooseInstagram && (
+            <motion.div
+              {...fadeUp}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="mt-10 flex justify-center"
+            >
+              <a
+                href={whyChooseInstagram.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-secondary/10 text-primary font-semibold font-body hover:bg-secondary/20 transition-colors"
+                aria-label={`Follow ${whyChooseTitle} on Instagram`}
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="w-5 h-5 text-secondary"
+                  aria-hidden="true"
+                >
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                </svg>
+                <span>Follow {whyChooseInstagram.handle} on Instagram</span>
+              </a>
+            </motion.div>
+          )}
         </div>
       </section>
 
