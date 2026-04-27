@@ -150,6 +150,7 @@ export function CalendlyModalRoot() {
       className="fixed inset-0 z-[100]"
       style={{
         pointerEvents: open ? "auto" : "none",
+        visibility: open ? "visible" : "hidden",
       }}
     >
       <button
