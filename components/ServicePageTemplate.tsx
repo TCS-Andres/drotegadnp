@@ -33,6 +33,14 @@ interface ServicePageTemplateProps {
   services: ServiceItem[];
   whyChooseTitle: string;
   whyChooseItems: string[];
+  whyChooseWebsite?: {
+    url: string;
+    image: string;
+    imageAlt: string;
+    heading: string;
+    description: string;
+    ctaLabel: string;
+  };
   whyChooseInstagram?: { url: string; handle: string };
   crossPillarText: string;
   crossPillarLinks: CrossPillarLink[];
@@ -47,6 +55,7 @@ export default function ServicePageTemplate({
   services,
   whyChooseTitle,
   whyChooseItems,
+  whyChooseWebsite,
   whyChooseInstagram,
   crossPillarText,
   crossPillarLinks,
@@ -171,66 +180,104 @@ export default function ServicePageTemplate({
         </div>
       </section>
 
-      {/* Section 3b - Stay Connected (optional) */}
+      {/* Section 3b - Visit Website (optional) */}
+      {whyChooseWebsite && (
+        <>
+          <div className="gradient-separator" />
+          <section className="bg-white py-16 md:py-20 px-4">
+            <div className="max-w-5xl mx-auto">
+              <motion.div
+                {...fadeUp}
+                className="glass-card rounded-2xl overflow-hidden grid md:grid-cols-2 gap-0"
+              >
+                <div className="relative h-64 md:h-auto md:min-h-[320px]">
+                  <Image
+                    src={whyChooseWebsite.image}
+                    alt={whyChooseWebsite.imageAlt}
+                    fill
+                    className="object-cover object-center"
+                    sizes="(min-width: 768px) 50vw, 100vw"
+                  />
+                </div>
+                <div className="p-8 md:p-10 flex flex-col justify-center">
+                  <h3 className="text-2xl md:text-[28px] font-heading font-bold text-primary mb-3 leading-snug">
+                    {whyChooseWebsite.heading}
+                  </h3>
+                  <p className="text-lg text-[#2D2D2D] font-body leading-relaxed mb-6">
+                    {whyChooseWebsite.description}
+                  </p>
+                  <div>
+                    <a
+                      href={whyChooseWebsite.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-secondary text-primary font-semibold font-body hover:bg-[#b8911f] transition-colors"
+                    >
+                      <span>{whyChooseWebsite.ctaLabel}</span>
+                      <span aria-hidden="true">&rarr;</span>
+                    </a>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+          </section>
+        </>
+      )}
+
+      {/* Section 3c - Stay Connected (optional) */}
       {whyChooseInstagram && (
         <>
           <div className="gradient-separator" />
           <section className="bg-white py-16 md:py-20 px-4">
-            <div className="max-w-3xl mx-auto">
+            <div className="max-w-5xl mx-auto">
               <motion.div
                 {...fadeUp}
-                className="glass-card rounded-2xl p-8 md:p-10 text-center"
+                className="glass-card rounded-2xl overflow-hidden grid md:grid-cols-2 gap-0"
               >
-                <div className="flex justify-center mb-5">
-                  <div className="w-14 h-14 rounded-2xl bg-secondary/15 flex items-center justify-center shadow-gold-glow">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      className="w-7 h-7 text-secondary"
-                      aria-hidden="true"
-                    >
-                      <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
-                      <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-                      <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
-                    </svg>
-                  </div>
-                </div>
-                <h3 className="text-2xl md:text-[28px] font-heading font-bold text-primary mb-3">
-                  Stay Connected with {whyChooseTitle}
-                </h3>
-                <p className="text-lg text-[#2D2D2D] font-body leading-relaxed mb-6 max-w-xl mx-auto">
-                  Follow along for screening events, wellness tips, and updates
-                  from our team.
-                </p>
-                <a
-                  href={whyChooseInstagram.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-secondary text-primary font-semibold font-body hover:bg-[#b8911f] transition-colors"
-                  aria-label={`Follow ${whyChooseTitle} on Instagram`}
+                <div
+                  className="relative h-64 md:h-auto md:min-h-[320px] flex items-center justify-center"
+                  style={{
+                    background:
+                      "linear-gradient(135deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%)",
+                  }}
+                  aria-hidden="true"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
-                    strokeWidth="2"
+                    strokeWidth="1.5"
                     strokeLinecap="round"
                     strokeLinejoin="round"
-                    className="w-5 h-5"
-                    aria-hidden="true"
+                    className="w-28 h-28 text-white/95 drop-shadow-[0_4px_12px_rgba(0,0,0,0.25)]"
                   >
                     <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
                     <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
                     <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
                   </svg>
-                  <span>Follow {whyChooseInstagram.handle}</span>
-                </a>
+                </div>
+                <div className="p-8 md:p-10 flex flex-col justify-center">
+                  <h3 className="text-2xl md:text-[28px] font-heading font-bold text-primary mb-3 leading-snug">
+                    Follow {whyChooseTitle} on Instagram
+                  </h3>
+                  <p className="text-lg text-[#2D2D2D] font-body leading-relaxed mb-6">
+                    Stay in the loop on screening events, wellness tips, and
+                    behind-the-scenes updates from our team.
+                  </p>
+                  <div>
+                    <a
+                      href={whyChooseInstagram.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-secondary text-primary font-semibold font-body hover:bg-[#b8911f] transition-colors"
+                      aria-label={`Follow ${whyChooseTitle} on Instagram`}
+                    >
+                      <span>Follow {whyChooseInstagram.handle}</span>
+                      <span aria-hidden="true">&rarr;</span>
+                    </a>
+                  </div>
+                </div>
               </motion.div>
             </div>
           </section>

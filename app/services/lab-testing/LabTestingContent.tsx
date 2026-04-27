@@ -54,6 +54,15 @@ export default function LabTestingContent() {
       services={services}
       whyChooseTitle="ARCpoint Labs of North Miami Beach"
       whyChooseItems={whyChooseItems}
+      whyChooseWebsite={{
+        url: "https://www.arcpointlabs.com/north-miami-beach/",
+        image: "/lab-hero.jpg",
+        imageAlt: "ARCpoint Labs of North Miami Beach diagnostic facility",
+        heading: "Visit the ARCpoint Labs Website",
+        description:
+          "Explore the full menu of lab and diagnostic services, schedule a screening, or learn more about ARCpoint Labs of North Miami Beach.",
+        ctaLabel: "Visit ArcPointLabs.com",
+      }}
       whyChooseInstagram={{
         url: brand.social.arcpointInstagram,
         handle: "@arcpointlabsofnmb",
