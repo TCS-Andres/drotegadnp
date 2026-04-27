@@ -52,10 +52,6 @@ export const metadata: Metadata = {
   alternates: {
     canonical: siteUrl,
   },
-  icons: {
-    icon: "/favicon.ico",
-    apple: "/apple-touch-icon.png",
-  },
 };
 
 const jsonLd = {

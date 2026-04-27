@@ -1,7 +1,7 @@
 "use client";
 
 import Script from "next/script";
-import { useEffect, useRef, type ReactNode } from "react";
+import { type ReactNode } from "react";
 
 const CALENDLY_URL = "https://calendly.com/connect-drotegadnp/30min";
 const CALENDLY_CSS = "https://assets.calendly.com/assets/external/widget.css";
@@ -19,27 +19,20 @@ declare global {
   }
 }
 
-function ensureCalendlyCss() {
-  if (typeof document === "undefined") return;
-  if (document.querySelector(`link[href="${CALENDLY_CSS}"]`)) return;
-  const link = document.createElement("link");
-  link.rel = "stylesheet";
-  link.href = CALENDLY_CSS;
-  document.head.appendChild(link);
-}
-
 function openCalendlyPopup() {
-  ensureCalendlyCss();
   if (typeof window === "undefined") return;
+
+  if (window.Calendly) {
+    window.Calendly.initPopupWidget({ url: CALENDLY_URL });
+    return;
+  }
 
   const tryOpen = (attempt = 0) => {
     if (window.Calendly) {
       window.Calendly.initPopupWidget({ url: CALENDLY_URL });
       return;
     }
-    if (attempt < 50) {
-      setTimeout(() => tryOpen(attempt + 1), 100);
-    }
+    if (attempt < 100) setTimeout(() => tryOpen(attempt + 1), 50);
   };
   tryOpen();
 }
@@ -47,7 +40,11 @@ function openCalendlyPopup() {
 export function CalendlyScripts() {
   return (
     <>
-      <link rel="preconnect" href="https://assets.calendly.com" />
+      <link rel="preconnect" href="https://calendly.com" crossOrigin="anonymous" />
+      <link rel="preconnect" href="https://assets.calendly.com" crossOrigin="anonymous" />
+      <link rel="dns-prefetch" href="https://calendly.com" />
+      <link rel="dns-prefetch" href="https://assets.calendly.com" />
+      <link rel="stylesheet" href={CALENDLY_CSS} />
       <Script src={CALENDLY_JS} strategy="afterInteractive" />
     </>
   );
@@ -91,34 +88,10 @@ export function CalendlyInline({
   className,
   height = 700,
 }: CalendlyInlineProps) {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const initializedRef = useRef(false);
-
-  useEffect(() => {
-    ensureCalendlyCss();
-    if (initializedRef.current) return;
-
-    const init = (attempt = 0) => {
-      if (!containerRef.current) return;
-      if (window.Calendly) {
-        window.Calendly.initInlineWidget({
-          url: CALENDLY_URL,
-          parentElement: containerRef.current,
-        });
-        initializedRef.current = true;
-        return;
-      }
-      if (attempt < 50) {
-        setTimeout(() => init(attempt + 1), 100);
-      }
-    };
-    init();
-  }, []);
-
   return (
     <div
-      ref={containerRef}
-      className={className}
+      className={`calendly-inline-widget ${className ?? ""}`.trim()}
+      data-url={CALENDLY_URL}
       style={{ minWidth: 320, height }}
     />
   );

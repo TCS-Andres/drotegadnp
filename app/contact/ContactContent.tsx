@@ -70,24 +70,39 @@ function Hero() {
 function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setSubmitting(true);
+    setError(null);
     const form = e.currentTarget;
     const data = new FormData(form);
 
-    // TODO: Replace YOUR_FORM_ID with actual Formspree form ID
-    const res = await fetch("https://formspree.io/f/YOUR_FORM_ID", {
-      method: "POST",
-      body: data,
-      headers: { Accept: "application/json" },
-    });
+    try {
+      const res = await fetch(
+        "https://formsubmit.co/ajax/connect@drotegadnp.com",
+        {
+          method: "POST",
+          body: data,
+          headers: { Accept: "application/json" },
+        },
+      );
 
-    setSubmitting(false);
-    if (res.ok) {
-      setSubmitted(true);
-      form.reset();
+      if (res.ok) {
+        setSubmitted(true);
+        form.reset();
+      } else {
+        setError(
+          "We could not send your message. Please call 305-978-0288 or email connect@drotegadnp.com.",
+        );
+      }
+    } catch {
+      setError(
+        "We could not send your message. Please call 305-978-0288 or email connect@drotegadnp.com.",
+      );
+    } finally {
+      setSubmitting(false);
     }
   }
 
@@ -106,6 +121,10 @@ function ContactForm() {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-5">
+      <input type="hidden" name="_subject" value="New contact request — drotegadnp.com" />
+      <input type="hidden" name="_template" value="table" />
+      <input type="hidden" name="_captcha" value="false" />
+      <input type="text" name="_honey" className="hidden" tabIndex={-1} autoComplete="off" aria-hidden="true" />
       <div>
         <label htmlFor="name" className="block text-sm font-body font-medium text-primary mb-1.5">
           Name *
@@ -191,6 +210,11 @@ function ContactForm() {
       >
         {submitting ? "Sending..." : "Send Your Request"}
       </button>
+      {error && (
+        <p role="alert" className="text-sm text-accent font-body">
+          {error}
+        </p>
+      )}
     </form>
   );
 }
