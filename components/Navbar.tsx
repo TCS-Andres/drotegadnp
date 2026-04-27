@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ChevronDown } from "lucide-react";
+import { BookAppointmentButton } from "@/components/Calendly";
 
 const services = [
   { name: "Health & Clinical", href: "/services/health" },
@@ -120,12 +121,8 @@ export default function Navbar() {
             </div>
 
             {/* Desktop CTA */}
-            <Link
-              href="/contact"
-              className="hidden lg:inline-flex items-center px-6 py-2.5 bg-secondary text-primary font-semibold rounded-full hover:bg-[#b8911f] hover:-translate-y-0.5 transition-all duration-200"
-            >
-              Book an Appointment
-            </Link>
+            <BookAppointmentButton className="hidden lg:inline-flex items-center px-6 py-2.5 bg-secondary text-primary font-semibold rounded-full hover:bg-[#b8911f] hover:-translate-y-0.5 transition-all duration-200" />
+
 
             {/* Mobile Hamburger */}
             <button
@@ -157,13 +154,11 @@ export default function Navbar() {
             aria-modal="true"
             aria-label="Mobile navigation menu"
           >
-            <Link
-              href="/contact"
+            <BookAppointmentButton
               onClick={() => setMobileOpen(false)}
               className="inline-flex items-center justify-center px-6 py-3 bg-secondary text-primary font-semibold rounded-full mb-8 min-h-[44px]"
-            >
-              Book an Appointment
-            </Link>
+            />
+
 
             <div className="flex flex-col gap-1">
               {navLinks.map((link) => {

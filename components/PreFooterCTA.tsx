@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { BookAppointmentButton } from "@/components/Calendly";
 
 export default function PreFooterCTA() {
   return (
@@ -15,12 +15,7 @@ export default function PreFooterCTA() {
         <p className="text-background/90 text-lg mb-8">
           Take the first step toward a healthier, wealthier future.
         </p>
-        <Link
-          href="/contact"
-          className="inline-flex items-center px-8 py-3.5 bg-secondary/90 backdrop-blur-sm text-primary font-semibold rounded-full hover:bg-secondary hover:-translate-y-0.5 hover:shadow-gold-glow transition-all duration-300 text-lg min-h-[48px] border border-secondary/30"
-        >
-          Book an Appointment
-        </Link>
+        <BookAppointmentButton className="inline-flex items-center px-8 py-3.5 bg-secondary/90 backdrop-blur-sm text-primary font-semibold rounded-full hover:bg-secondary hover:-translate-y-0.5 hover:shadow-gold-glow transition-all duration-300 text-lg min-h-[48px] border border-secondary/30" />
       </div>
     </section>
   );

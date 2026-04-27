@@ -7,6 +7,7 @@ import { useRef, useEffect, useState } from "react";
 import { Heart, FlaskConical, TrendingUp } from "lucide-react";
 import PreFooterCTA from "@/components/PreFooterCTA";
 import { AuroraBackground } from "@/components/ui/aurora-background";
+import { BookAppointmentButton } from "@/components/Calendly";
 
 const credentials = ["DNP", "FNP-C", "PMHNP-BC", "LFP"];
 
@@ -128,12 +129,7 @@ function Hero() {
           transition={{ duration: 0.6, delay: 1.4 }}
           className="flex flex-col sm:flex-row items-center justify-center gap-4"
         >
-          <Link
-            href="/contact"
-            className="px-8 py-3.5 bg-secondary text-primary font-semibold rounded-full hover:bg-[#b8911f] hover:-translate-y-0.5 transition-all duration-200 text-lg"
-          >
-            Book an Appointment
-          </Link>
+          <BookAppointmentButton className="px-8 py-3.5 bg-secondary text-primary font-semibold rounded-full hover:bg-[#b8911f] hover:-translate-y-0.5 transition-all duration-200 text-lg" />
           <Link
             href="/services"
             className="px-8 py-3.5 border-2 border-secondary text-secondary font-semibold rounded-full hover:bg-secondary hover:text-primary transition-all duration-200 text-lg"

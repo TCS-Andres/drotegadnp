@@ -1,5 +1,5 @@
 import { Phone } from "lucide-react";
-import Link from "next/link";
+import { BookAppointmentButton } from "@/components/Calendly";
 
 export default function MobileStickyBar() {
   return (
@@ -16,12 +16,9 @@ export default function MobileStickyBar() {
         <Phone className="w-4 h-4" aria-hidden="true" />
         Call Now
       </a>
-      <Link
-        href="/contact"
-        className="flex-1 flex items-center justify-center bg-secondary text-primary py-3.5 font-semibold min-h-[48px]"
-      >
+      <BookAppointmentButton className="flex-1 flex items-center justify-center bg-secondary text-primary py-3.5 font-semibold min-h-[48px]">
         Book Appointment
-      </Link>
+      </BookAppointmentButton>
     </div>
   );
 }

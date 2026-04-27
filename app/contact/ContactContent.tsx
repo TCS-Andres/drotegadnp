@@ -3,6 +3,7 @@
 import { useState, FormEvent } from "react";
 import { motion } from "framer-motion";
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
+import { CalendlyInline } from "@/components/Calendly";
 
 const fadeUp = {
   initial: { opacity: 0, y: 30 } as const,
@@ -292,7 +293,7 @@ function Booking() {
       {/* Subtle background treatment */}
       <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse 60% 50% at 50% 50%, rgba(201, 162, 39, 0.04) 0%, transparent 60%)' }} />
       <div className="floating-shape w-48 h-48 border border-secondary/10 animate-float-medium" style={{ top: '10%', right: '-2%', opacity: 0.04, background: 'transparent' }} />
-      <div className="relative z-10 max-w-3xl mx-auto text-center">
+      <div className="relative z-10 max-w-4xl mx-auto text-center">
         <motion.h2
           {...fadeUp}
           className="text-3xl md:text-[40px] font-heading font-bold text-primary leading-tight mb-8"
@@ -300,22 +301,12 @@ function Booking() {
           Book Online
         </motion.h2>
 
-        {/* TODO: Replace with Setmore embed code */}
         <motion.div
           {...fadeUp}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="bg-background rounded-2xl border-2 border-dashed border-secondary/30 p-12"
+          className="bg-background rounded-2xl overflow-hidden shadow-glass"
         >
-          <p className="text-lg text-[#2D2D2D] font-body">
-            Online scheduling coming soon. In the meantime, call{" "}
-            <a
-              href="tel:3059780288"
-              className="text-secondary font-semibold hover:text-[#b8911f] transition-colors"
-            >
-              305-978-0288
-            </a>{" "}
-            or use the form above.
-          </p>
+          <CalendlyInline />
         </motion.div>
       </div>
     </section>
