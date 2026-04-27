@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import MobileStickyBar from "@/components/MobileStickyBar";
 import Preloader from "@/components/Preloader";
 import Script from "next/script";
+import { CalendlyScripts } from "@/components/Calendly";
 
 const playfairDisplay = Playfair_Display({
   subsets: ["latin"],
@@ -118,6 +119,7 @@ export default function RootLayout({
         <main id="main-content">{children}</main>
         <Footer />
         <MobileStickyBar />
+        <CalendlyScripts />
         <Script
           id="json-ld"
           type="application/ld+json"

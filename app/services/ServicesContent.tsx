@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import PreFooterCTA from "@/components/PreFooterCTA";
+import { BookAppointmentButton } from "@/components/Calendly";
 import {
   Heart,
   FlaskConical,
@@ -124,12 +125,7 @@ function Hero() {
           silos. Dr. Otega brings them together.
         </motion.p>
         <motion.div {...fadeUp} transition={{ duration: 0.6, delay: 0.3 }}>
-          <Link
-            href="/contact"
-            className="inline-flex items-center px-8 py-3.5 bg-secondary text-primary font-semibold rounded-full hover:bg-[#b8911f] hover:-translate-y-0.5 transition-all duration-200 text-lg"
-          >
-            Book an Appointment
-          </Link>
+          <BookAppointmentButton className="inline-flex items-center px-8 py-3.5 bg-secondary text-primary font-semibold rounded-full hover:bg-[#b8911f] hover:-translate-y-0.5 transition-all duration-200 text-lg" />
         </motion.div>
       </div>
     </section>
