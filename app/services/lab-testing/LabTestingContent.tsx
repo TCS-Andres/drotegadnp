@@ -2,6 +2,7 @@
 
 import { Dna, Eye, Truck, ShieldCheck } from "lucide-react";
 import ServicePageTemplate from "@/components/ServicePageTemplate";
+import { brand } from "@/lib/brand";
 
 const services = [
   {
@@ -53,6 +54,10 @@ export default function LabTestingContent() {
       services={services}
       whyChooseTitle="ARCpoint Labs of North Miami Beach"
       whyChooseItems={whyChooseItems}
+      whyChooseInstagram={{
+        url: brand.social.arcpointInstagram,
+        handle: "@arcpointlabsofnmb",
+      }}
       crossPillarText="Testing is the first step. See how clinical care and financial protection complete your plan."
       crossPillarLinks={crossPillarLinks}
       disclaimerText="Laboratory testing is provided through ARCpoint Labs of North Miami Beach. Lab results do not diagnose or treat medical conditions. Always consult a qualified healthcare provider for medical advice."

@@ -104,25 +104,28 @@ export default function Footer() {
             <div className="flex gap-3">
               <a
                 href={brand.social.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="glass-card-dark rounded-lg px-3 py-1.5 text-background/70 hover:text-secondary transition-all duration-200 text-sm"
                 aria-label="Follow us on Instagram"
-                rel="noopener noreferrer"
               >
                 Instagram
               </a>
               <a
                 href={brand.social.facebook}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="glass-card-dark rounded-lg px-3 py-1.5 text-background/70 hover:text-secondary transition-all duration-200 text-sm"
                 aria-label="Follow us on Facebook"
-                rel="noopener noreferrer"
               >
                 Facebook
               </a>
               <a
                 href={brand.social.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="glass-card-dark rounded-lg px-3 py-1.5 text-background/70 hover:text-secondary transition-all duration-200 text-sm"
                 aria-label="Connect with us on LinkedIn"
-                rel="noopener noreferrer"
               >
                 LinkedIn
               </a>

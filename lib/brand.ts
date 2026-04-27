@@ -19,8 +19,9 @@ export const brand = {
     address: "657 NE 167th St, North Miami Beach, FL",
   },
   social: {
-    instagram: "#",
-    facebook: "#",
-    linkedin: "#",
+    instagram: "https://www.instagram.com/completehealthinc",
+    facebook: "https://www.facebook.com/share/1EAK6wauqa/",
+    linkedin: "https://www.linkedin.com/in/complete-health-inc-955685241",
+    arcpointInstagram: "https://www.instagram.com/arcpointlabsofnmb",
   },
 } as const;
