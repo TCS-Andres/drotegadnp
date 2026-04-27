@@ -23,5 +23,6 @@ export const brand = {
     facebook: "https://www.facebook.com/share/1EAK6wauqa/",
     linkedin: "https://www.linkedin.com/in/complete-health-inc-955685241",
     arcpointInstagram: "https://www.instagram.com/arcpointlabsofnmb",
+    arcpointLinkedin: "https://www.linkedin.com/in/arcpoint-labs-3594883b8/",
   },
 } as const;

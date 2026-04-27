@@ -63,9 +63,24 @@ export default function LabTestingContent() {
           "Explore the full menu of lab and diagnostic services, schedule a screening, or learn more about ARCpoint Labs of North Miami Beach.",
         ctaLabel: "Visit ArcPointLabs.com",
       }}
-      whyChooseInstagram={{
-        url: brand.social.arcpointInstagram,
-        handle: "@arcpointlabsofnmb",
+      whyChooseSocial={{
+        image: "/portrait.jpg",
+        imageAlt: "Dr. Otega Ojukwu, DNP",
+        heading: "Stay Connected with ARCpoint Labs",
+        description:
+          "Follow along on Instagram and LinkedIn for screening events, wellness tips, and behind-the-scenes updates from Dr. Otega and the ARCpoint Labs team.",
+        ctas: [
+          {
+            label: "Follow @arcpointlabsofnmb",
+            url: brand.social.arcpointInstagram,
+            icon: "instagram",
+          },
+          {
+            label: "Connect on LinkedIn",
+            url: brand.social.arcpointLinkedin,
+            icon: "linkedin",
+          },
+        ],
       }}
       crossPillarText="Testing is the first step. See how clinical care and financial protection complete your plan."
       crossPillarLinks={crossPillarLinks}
