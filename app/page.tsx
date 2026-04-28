@@ -98,16 +98,16 @@ function Hero() {
       <div className="absolute inset-0 pointer-events-none lg:hidden" style={{ background: 'radial-gradient(circle at 50% 40%, rgba(201, 162, 39, 0.08) 0%, transparent 60%)' }} />
 
       <div className="relative z-10 w-full max-w-7xl mx-auto">
-        <div className="max-w-2xl mx-auto text-center lg:mx-0 lg:max-w-xl lg:text-left">
+        <div className="max-w-2xl mx-auto text-center lg:mx-0 lg:max-w-2xl lg:text-left">
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-4xl sm:text-5xl md:text-[56px] lg:text-[64px] font-heading font-bold text-white leading-tight mb-6"
+            className="text-4xl sm:text-5xl md:text-[56px] lg:text-[60px] font-heading font-bold text-white leading-tight mb-6"
           >
-            Know Your Numbers.
+            <span className="lg:whitespace-nowrap">Know Your Numbers.</span>
             <br />
-            Protect Your Future.
+            <span className="lg:whitespace-nowrap">Protect Your Future.</span>
           </motion.h1>
 
           <motion.p
