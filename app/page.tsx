@@ -65,78 +65,92 @@ const steps = [
 function Hero() {
   return (
     <section
-      className="relative min-h-[80vh] md:min-h-[90vh] flex items-center justify-center px-4 overflow-hidden"
+      className="relative min-h-[80vh] md:min-h-[90vh] flex items-center justify-center lg:justify-start px-4 lg:px-8 overflow-hidden"
     >
-      {/* Hero background image */}
+      {/* Hero background image — focus shifts right on desktop so Dr. Otega is visible beside the text */}
       <Image
         src="/hero-wide.jpg"
         alt=""
         fill
-        className="object-cover"
+        className="object-cover object-center lg:object-[75%_center]"
         priority
       />
-      <div className="absolute inset-0 mesh-gradient-hero opacity-90" />
-      {/* Floating decorative shapes */}
-      <div className="floating-shape w-64 h-64 bg-secondary animate-float-slow" style={{ top: '10%', right: '10%', opacity: 0.06 }} />
-      <div className="floating-shape w-48 h-48 border-2 border-secondary animate-float-medium" style={{ bottom: '15%', left: '5%', opacity: 0.08, background: 'transparent' }} />
-      <div className="floating-shape w-32 h-32 bg-accent animate-float-fast" style={{ top: '60%', right: '25%', opacity: 0.05 }} />
-      <div className="floating-shape w-20 h-20 border border-secondary animate-float-medium" style={{ top: '25%', left: '15%', opacity: 0.1, background: 'transparent' }} />
 
-      {/* Radial glow */}
-      <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(circle at 50% 40%, rgba(201, 162, 39, 0.08) 0%, transparent 60%)' }} />
+      {/* Mobile/tablet overlay — keep the dark mesh treatment so the centered text reads */}
+      <div className="absolute inset-0 mesh-gradient-hero opacity-90 lg:hidden" />
 
-      <div className="relative z-10 max-w-4xl mx-auto text-center">
-        <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-4xl sm:text-5xl md:text-[56px] lg:text-[64px] font-heading font-bold text-white leading-tight mb-6"
-        >
-          Know Your Numbers.
-          <br />
-          Protect Your Future.
-        </motion.h1>
+      {/* Desktop overlay — left-to-right dark gradient, no full-image overlay so the photo shows through on the right */}
+      <div
+        className="absolute inset-0 hidden lg:block pointer-events-none"
+        style={{
+          background:
+            "linear-gradient(to right, rgba(20, 20, 20, 0.92) 0%, rgba(20, 20, 20, 0.82) 25%, rgba(20, 20, 20, 0.55) 45%, rgba(20, 20, 20, 0.25) 65%, rgba(20, 20, 20, 0) 82%)",
+        }}
+      />
 
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.6 }}
-          className="text-lg md:text-xl text-[#FAF7F2] font-body mb-4 max-w-2xl mx-auto"
-        >
-          Physical Health. Mental Wellness. Financial Empowerment. One Trusted
-          Expert.
-        </motion.p>
+      {/* Floating decorative shapes — kept for tablet/mobile, hidden on desktop where they'd land over the photo */}
+      <div className="floating-shape w-64 h-64 bg-secondary animate-float-slow lg:hidden" style={{ top: '10%', right: '10%', opacity: 0.06 }} />
+      <div className="floating-shape w-48 h-48 border-2 border-secondary animate-float-medium lg:hidden" style={{ bottom: '15%', left: '5%', opacity: 0.08, background: 'transparent' }} />
+      <div className="floating-shape w-32 h-32 bg-accent animate-float-fast lg:hidden" style={{ top: '60%', right: '25%', opacity: 0.05 }} />
+      <div className="floating-shape w-20 h-20 border border-secondary animate-float-medium lg:hidden" style={{ top: '25%', left: '15%', opacity: 0.1, background: 'transparent' }} />
 
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 1.0 }}
-          className="text-base text-secondary font-semibold font-body mb-10"
-        >
-          {credentials.map((cred, i) => (
-            <span key={cred}>
-              {i > 0 && (
-                <span className="inline-block mx-2 w-1.5 h-1.5 rounded-full bg-secondary align-middle" />
-              )}
-              {cred}
-            </span>
-          ))}
-        </motion.p>
+      {/* Radial glow — only on mobile/tablet where the dark overlay hides the photo */}
+      <div className="absolute inset-0 pointer-events-none lg:hidden" style={{ background: 'radial-gradient(circle at 50% 40%, rgba(201, 162, 39, 0.08) 0%, transparent 60%)' }} />
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 1.4 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4"
-        >
-          <BookAppointmentButton className="px-8 py-3.5 bg-secondary text-primary font-semibold rounded-full hover:bg-[#b8911f] hover:-translate-y-0.5 transition-all duration-200 text-lg" />
-          <Link
-            href="/services"
-            className="px-8 py-3.5 border-2 border-secondary text-secondary font-semibold rounded-full hover:bg-secondary hover:text-primary transition-all duration-200 text-lg"
+      <div className="relative z-10 w-full max-w-7xl mx-auto">
+        <div className="max-w-2xl mx-auto text-center lg:mx-0 lg:max-w-xl lg:text-left">
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="text-4xl sm:text-5xl md:text-[56px] lg:text-[64px] font-heading font-bold text-white leading-tight mb-6"
           >
-            Explore Services
-          </Link>
-        </motion.div>
+            Know Your Numbers.
+            <br />
+            Protect Your Future.
+          </motion.h1>
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.6 }}
+            className="text-lg md:text-xl text-[#FAF7F2] font-body mb-4 max-w-2xl mx-auto lg:mx-0"
+          >
+            Physical Health. Mental Wellness. Financial Empowerment. One Trusted
+            Expert.
+          </motion.p>
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 1.0 }}
+            className="text-base text-secondary font-semibold font-body mb-10"
+          >
+            {credentials.map((cred, i) => (
+              <span key={cred}>
+                {i > 0 && (
+                  <span className="inline-block mx-2 w-1.5 h-1.5 rounded-full bg-secondary align-middle" />
+                )}
+                {cred}
+              </span>
+            ))}
+          </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 1.4 }}
+            className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4"
+          >
+            <BookAppointmentButton className="px-8 py-3.5 bg-secondary text-primary font-semibold rounded-full hover:bg-[#b8911f] hover:-translate-y-0.5 transition-all duration-200 text-lg" />
+            <Link
+              href="/services"
+              className="px-8 py-3.5 border-2 border-secondary text-secondary font-semibold rounded-full hover:bg-secondary hover:text-primary transition-all duration-200 text-lg"
+            >
+              Explore Services
+            </Link>
+          </motion.div>
+        </div>
       </div>
     </section>
   );
