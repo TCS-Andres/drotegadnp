@@ -7,6 +7,7 @@ import MobileStickyBar from "@/components/MobileStickyBar";
 import Preloader from "@/components/Preloader";
 import Script from "next/script";
 import { CalendlyHints, CalendlyModalRoot } from "@/components/Calendly";
+import FollowSocials from "@/components/FollowSocials";
 
 const playfairDisplay = Playfair_Display({
   subsets: ["latin"],
@@ -113,6 +114,7 @@ export default function RootLayout({
         </a>
         <Navbar />
         <main id="main-content">{children}</main>
+        <FollowSocials />
         <Footer />
         <MobileStickyBar />
         <CalendlyHints />
